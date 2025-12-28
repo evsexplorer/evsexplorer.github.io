@@ -9,21 +9,21 @@ export function SEO({ language }: SEOProps) {
   const seoData = {
     en: {
       title: 'EVSExplorer - Professional OCPP 2.0.1 Testing & Charge Point Monitoring | EVSE Compliance Testing',
-      description: 'EVSExplorer is the leading OCPP 2.0.1 WebSocket server for charge point testing, EVSE monitoring, and compliance testing. Professional OCPP testing solutions with REST API control, real-time monitoring, and comprehensive charge point validation.',
-      keywords: 'OCPP, OCPP 2.0.1, charge point testing, EVSE testing, EVSE monitoring, charge point monitoring, OCPP compliance testing, electric vehicle charging, WebSocket server, charge point validation, EV charging infrastructure, OCPP protocol testing, charge point certification, EVSE compliance, electric vehicle supply equipment',
+      description: 'EVSExplorer is a comprehensive OCPP 2.0.1 WebSocket server designed for monitoring and compliance testing of electric vehicle charge points. Use our REST API to create your individual testing scenarios.',
+      keywords: 'OCPP, OCPP2.0.1, automated charge point testing, automated EVSE testing, EVSE monitoring, charge point monitoring, OCPP compliance testing, electric vehicle charging, WebSocket server, charge point validation, EV charging infrastructure, OCPP protocol testing, charge point certification, EVSE compliance, electric vehicle supply equipment',
       canonicalUrl: 'https://evsexplorer.com',
       siteName: 'EVSExplorer',
-      author: 'EVSExplorer Team',
+      author: 'The EVSExplorer team',
       twitterCard: 'summary_large_image',
       ogType: 'website'
     },
     de: {
       title: 'EVSExplorer - Professionelle OCPP 2.0.1 Tests & Ladepunkt-Überwachung | EVSE Compliance Testing',
-      description: 'EVSExplorer ist der führende OCPP 2.0.1 WebSocket-Server für Ladepunkt-Tests, EVSE-Überwachung und Compliance-Tests. Professionelle OCPP-Testlösungen mit REST-API-Steuerung, Echtzeit-Überwachung und umfassender Ladepunkt-Validierung.',
-      keywords: 'OCPP, OCPP 2.0.1, Ladepunkt-Tests, EVSE-Tests, EVSE-Überwachung, Ladepunkt-Überwachung, OCPP Compliance Testing, Elektrofahrzeug-Laden, WebSocket-Server, Ladepunkt-Validierung, E-Mobility Ladeinfrastruktur, OCPP-Protokoll-Tests, Ladepunkt-Zertifizierung, EVSE Compliance, Elektrofahrzeug-Ladestation',
+      description: 'EVSExplorer ist ein umfangreicher OCPP 2.0.1 WebSocket-Server zur Überwachung und für Compliance-Tests von Elektrofahrzeug-Ladestationen. Nutzen Sie auch unsere REST-API um Ihre ganz speziellen Testszenarien zu erstellen',
+      keywords: 'OCPP, OCPP2.0.1, automatisierte Ladepunkt-Tests, automatisierte EVSE-Tests, EVSE-Überwachung, Ladepunkt-Überwachung, OCPP Compliance Testing, Elektrofahrzeug-Laden, WebSocket-Server, Ladepunkt-Validierung, E-Mobility Ladeinfrastruktur, OCPP-Protokoll-Tests, Ladepunkt-Zertifizierung, EVSE Compliance, Elektrofahrzeug-Ladestation',
       canonicalUrl: 'https://evsexplorer.com',
       siteName: 'EVSExplorer',
-      author: 'EVSExplorer Team',
+      author: 'Das Team von EVSExplorer',
       twitterCard: 'summary_large_image',
       ogType: 'website'
     }
@@ -48,16 +48,20 @@ export function SEO({ language }: SEOProps) {
       "availability": "https://schema.org/InStock",
       "price": "0",
       "priceCurrency": "USD",
-      "description": language === 'en' ? "Contact for pricing" : "Kontakt für Preisanfrage"
+      "description": language === 'en' ? "Contact us for pricing" : "Kontaktieren Sie und für Preisanfragen."
     },
     "featureList": [
-      "OCPP 2.0.1 Protocol Implementation",
-      "Multi Charge Point Connection Support", 
-      "Real-time Message Validation",
-      "Comprehensive Dashboard Monitoring",
-      "REST API Control",
-      "Custom Alert System",
+      "OCPP 2.0.1 Protocol",
+      "Multi Connection Support",
+      "Message Validation",
+      "Real-time Dashboard",
+      "Auto-Response System",
+      "Connection Stability Analysis",
+      "WebSocket Control",
+      "Message History",
+      "Custom Alerts",
       "Transaction Visualization",
+      "REST API Control",
       "Compliance Testing Tools"
     ],
     "applicationSubCategory": "OCPP Testing Software",
@@ -67,8 +71,8 @@ export function SEO({ language }: SEOProps) {
       "@type": "Dataset",
       "name": "OCPP 2.0.1 Compliance Data",
       "description": language === 'en' ? 
-        "Comprehensive OCPP 2.0.1 testing and monitoring data for electric vehicle charge points" :
-        "Umfassende OCPP 2.0.1 Test- und Überwachungsdaten für Elektrofahrzeug-Ladepunkte"
+        "EVSExplorer is a comprehensive OCPP 2.0.1 WebSocket server designed for monitoring and compliance testing of electric vehicle charge points" :
+        "EVSExplorer ist ein umfangreicher OCPP 2.0.1 WebSocket-Server zur Überwachung und für Compliance-Tests von Elektrofahrzeug-Ladestationen."
     }
   };
 
@@ -77,7 +81,7 @@ export function SEO({ language }: SEOProps) {
     "@type": "Organization",
     "name": "EVSExplorer",
     "url": currentSEO.canonicalUrl,
-    "logo": currentSEO.canonicalUrl + "/logo.png",
+    "logo": currentSEO.canonicalUrl + "/assets/cb71f464b18f6d1a5ae5e91219f7311c3c3df3dc-DxQIuVWP.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "",
@@ -186,7 +190,7 @@ export function SEO({ language }: SEOProps) {
             "name": "EVSExplorer",
             "logo": {
               "@type": "ImageObject",
-              "url": currentSEO.canonicalUrl + "/logo.png"
+              "url": currentSEO.canonicalUrl + + "/assets/cb71f464b18f6d1a5ae5e91219f7311c3c3df3dc-DxQIuVWP.png"
             }
           },
           "mainEntityOfPage": {
