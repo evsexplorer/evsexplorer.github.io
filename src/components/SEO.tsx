@@ -8,7 +8,7 @@ interface SEOProps {
 export function SEO({ language }: SEOProps) {
   const seoData = {
     en: {
-      title: 'EVSExplorer - Professional OCPP Monitoring and Testing',
+      title: 'EVSExplorer - Professional OCPP Testing & Monitoring',
       description: 'EVSExplorer is a comprehensive OCPP 2.0.1 WebSocket server designed for monitoring and compliance testing of electric vehicle charge points. Use our REST API to create your individual testing scenarios.',
       keywords: 'OCPP, OCPP 2.0.1, ocpp compliant chargers, ocpp compliance test automation, automated charge point testing, automated EVSE testing, EVSE monitoring, charge point monitoring, OCPP compliance testing, electric vehicle charging, WebSocket server, charge point validation, EV charging infrastructure, OCPP protocol testing, charging station certification, electric vehicle supply equipment',
       canonicalUrl: 'https://evsexplorer.com',
@@ -18,7 +18,7 @@ export function SEO({ language }: SEOProps) {
       ogType: 'website'
     },
     de: {
-      title: 'EVSExplorer - Professionelles OCPP Monitoring und Testen',
+      title: 'EVSExplorer - Professionelles OCPP Testen & Überwachen',
       description: 'EVSExplorer ist ein umfangreicher OCPP 2.0.1 WebSocket-Server zur Überwachung und für Compliance-Tests von Elektrofahrzeug-Ladestationen. Nutzen Sie auch unsere REST-API um Ihre ganz speziellen Testszenarien zu erstellen',
       keywords: 'OCPP, OCPP 2.0.1, ocpp wallbox, automatisierte Ladepunkt Tests, automatisierte EVSE Tests, EVSE Überwachung, Ladepunkt Überwachung, OCPP Compliance Tests, Elektrofahrzeug Laden, WebSocket Server, Ladepunkt Validierung, E-Mobility Ladeinfrastruktur, OCPP Protokoll Tests, Ladepunkt Zertifizierung, EVSE Compliance, Elektrofahrzeug Ladestation',
       canonicalUrl: 'https://evsexplorer.com',
@@ -123,9 +123,9 @@ export function SEO({ language }: SEOProps) {
       <meta property="og:url" content={currentSEO.canonicalUrl} />
       <meta property="og:title" content={currentSEO.title} />
       <meta property="og:description" content={currentSEO.description} />
-      <meta property="og:image" content={currentSEO.canonicalUrl + "/og-image.png"} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image" content={currentSEO.canonicalUrl + "/assets/cb71f464b18f6d1a5ae5e91219f7311c3c3df3dc-DxQIuVWP.png"} />
+      <meta property="og:image:width" content="64" />
+      <meta property="og:image:height" content="64" />
       <meta property="og:site_name" content={currentSEO.siteName} />
       <meta property="og:locale" content={language === 'en' ? 'en_US' : 'de_DE'} />
       
@@ -134,7 +134,7 @@ export function SEO({ language }: SEOProps) {
       <meta name="twitter:url" content={currentSEO.canonicalUrl} />
       <meta name="twitter:title" content={currentSEO.title} />
       <meta name="twitter:description" content={currentSEO.description} />
-      <meta name="twitter:image" content={currentSEO.canonicalUrl + "/twitter-image.png"} />
+      <meta name="twitter:image" content={currentSEO.canonicalUrl + "/assets/cb71f464b18f6d1a5ae5e91219f7311c3c3df3dc-DxQIuVWP.png"} />
       
       {/* Additional SEO Meta Tags */}
       <meta name="theme-color" content="#0E1E42" />
