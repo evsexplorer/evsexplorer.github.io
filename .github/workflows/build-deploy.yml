@@ -32,8 +32,6 @@ jobs:
         cp src/public/robots.txt build/robots.txt
         cp src/public/favicon.ico build/favicon.ico
         cp src/public/favicon.svg build/favicon.svg
-        cp src/public/favicon-16x16.png build/favicon-16x16.png
-        cp src/public/favicon-32x32.png build/favicon-32x32.png
     - name: Upload static files as artifact
       id: deployment
       uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action

@@ -8,9 +8,9 @@ interface SEOProps {
 export function SEO({ language }: SEOProps) {
   const seoData = {
     en: {
-      title: 'EVSExplorer - Professional OCPP 2.0.1 Testing & Charge Point Monitoring | EVSE Compliance Testing',
+      title: 'EVSExplorer - Professional OCPP Monitoring and Testing',
       description: 'EVSExplorer is a comprehensive OCPP 2.0.1 WebSocket server designed for monitoring and compliance testing of electric vehicle charge points. Use our REST API to create your individual testing scenarios.',
-      keywords: 'OCPP, OCPP2.0.1, automated charge point testing, automated EVSE testing, EVSE monitoring, charge point monitoring, OCPP compliance testing, electric vehicle charging, WebSocket server, charge point validation, EV charging infrastructure, OCPP protocol testing, charge point certification, EVSE compliance, electric vehicle supply equipment',
+      keywords: 'OCPP, OCPP 2.0.1, ocpp compliant chargers, ocpp compliance test automation, automated charge point testing, automated EVSE testing, EVSE monitoring, charge point monitoring, OCPP compliance testing, electric vehicle charging, WebSocket server, charge point validation, EV charging infrastructure, OCPP protocol testing, charging station certification, electric vehicle supply equipment',
       canonicalUrl: 'https://evsexplorer.com',
       siteName: 'EVSExplorer',
       author: 'The EVSExplorer team',
@@ -18,9 +18,9 @@ export function SEO({ language }: SEOProps) {
       ogType: 'website'
     },
     de: {
-      title: 'EVSExplorer - Professionelle OCPP 2.0.1 Tests & Ladepunkt-Überwachung | EVSE Compliance Testing',
+      title: 'EVSExplorer - Professionelles OCPP Monitoring und Testen',
       description: 'EVSExplorer ist ein umfangreicher OCPP 2.0.1 WebSocket-Server zur Überwachung und für Compliance-Tests von Elektrofahrzeug-Ladestationen. Nutzen Sie auch unsere REST-API um Ihre ganz speziellen Testszenarien zu erstellen',
-      keywords: 'OCPP, OCPP2.0.1, automatisierte Ladepunkt-Tests, automatisierte EVSE-Tests, EVSE-Überwachung, Ladepunkt-Überwachung, OCPP Compliance Testing, Elektrofahrzeug-Laden, WebSocket-Server, Ladepunkt-Validierung, E-Mobility Ladeinfrastruktur, OCPP-Protokoll-Tests, Ladepunkt-Zertifizierung, EVSE Compliance, Elektrofahrzeug-Ladestation',
+      keywords: 'OCPP, OCPP 2.0.1, ocpp wallbox, automatisierte Ladepunkt Tests, automatisierte EVSE Tests, EVSE Überwachung, Ladepunkt Überwachung, OCPP Compliance Tests, Elektrofahrzeug Laden, WebSocket Server, Ladepunkt Validierung, E-Mobility Ladeinfrastruktur, OCPP Protokoll Tests, Ladepunkt Zertifizierung, EVSE Compliance, Elektrofahrzeug Ladestation',
       canonicalUrl: 'https://evsexplorer.com',
       siteName: 'EVSExplorer',
       author: 'Das Team von EVSExplorer',
@@ -108,10 +108,8 @@ export function SEO({ language }: SEOProps) {
       <link rel="canonical" href={currentSEO.canonicalUrl} />
       
       {/* Favicon */}
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/manifest.json" />
       
