@@ -7,6 +7,7 @@ export const translations = {
       product: "Product",
       features: "Features",
       api: "REST API",
+      ai: "AI",
       contact: "Contact",
     },
     requestDemo: "Request a demo",
@@ -22,6 +23,7 @@ export const translations = {
       "OCPP 2.0.1 WebSocket server",
       "Validated against the official JSON schemas",
       "Full REST API for automation",
+      "AI-agent-ready — skill file included",
       "Runs on your own hardware",
     ],
     heroImageAlt:
@@ -183,6 +185,18 @@ export const translations = {
     apiFootnote:
       "Runs on your own hardware — a Raspberry Pi is enough. Your OCPP traffic never leaves the lab.",
 
+    // AI section
+    aiKicker: "AI-ready",
+    aiTitle: "Let your AI agent drive the test bench",
+    aiSubtitle:
+      "The REST API is designed for efficient use by LLM-based agents, and EVSExplorer ships with a skill file that teaches your AI assistant the domain model, the interaction patterns and the common workflows — so it can operate the bench for you.",
+    aiBullets: [
+      "Token-efficient by design: server-side limits, time-range filters, action exclusion and sparse field selection keep responses small enough for an LLM context window",
+      "Machine-readable error codes and an asynchronous command pattern that agents can poll deterministically",
+      "The skill file covers worked workflows — inspect the last boot sequence, configure auto-responses, pull a charging curve — ready for Claude Code and other agentic tools",
+      "The OpenAPI spec is served by the instance itself, so agents can discover every endpoint at runtime",
+    ],
+
     // Contact
     contactTitle: "Put EVSExplorer on your bench",
     contactSubtitle:
@@ -218,6 +232,7 @@ export const translations = {
       product: "Produkt",
       features: "Funktionen",
       api: "REST-API",
+      ai: "KI",
       contact: "Kontakt",
     },
     requestDemo: "Demo anfragen",
@@ -232,6 +247,7 @@ export const translations = {
       "OCPP-2.0.1-WebSocket-Server",
       "Validierung gegen die offiziellen JSON-Schemata",
       "Vollständige REST-API zur Automatisierung",
+      "Bereit für KI-Agenten — Skill-Datei inklusive",
       "Läuft auf Ihrer eigenen Hardware",
     ],
     heroImageAlt:
@@ -388,6 +404,17 @@ export const translations = {
     ],
     apiFootnote:
       "Läuft auf Ihrer eigenen Hardware — ein Raspberry Pi genügt. Ihr OCPP-Verkehr verlässt das Labor nicht.",
+
+    aiKicker: "Bereit für KI",
+    aiTitle: "Lassen Sie Ihren KI-Agenten den Prüfstand bedienen",
+    aiSubtitle:
+      "Die REST-API ist auf die effiziente Nutzung durch LLM-basierte Agenten ausgelegt, und EVSExplorer liefert eine Skill-Datei mit, die Ihrem KI-Assistenten das Domänenmodell, die Interaktionsmuster und die typischen Arbeitsabläufe beibringt — damit er den Prüfstand für Sie bedient.",
+    aiBullets: [
+      "Token-effizient von Haus aus: serverseitige Limits, Zeitfilter, Aktions-Ausschluss und schlanke Feldauswahl halten Antworten klein genug für ein LLM-Kontextfenster",
+      "Maschinenlesbare Fehlercodes und ein asynchrones Kommando-Muster, das Agenten deterministisch abfragen können",
+      "Die Skill-Datei enthält ausgearbeitete Workflows — letzte Boot-Sequenz untersuchen, automatische Antworten konfigurieren, Ladekurve abrufen — bereit für Claude Code und andere agentische Tools",
+      "Die OpenAPI-Spezifikation wird von der Instanz selbst ausgeliefert, sodass Agenten jeden Endpunkt zur Laufzeit entdecken können",
+    ],
 
     contactTitle: "Holen Sie EVSExplorer auf Ihren Prüfstand",
     contactSubtitle:

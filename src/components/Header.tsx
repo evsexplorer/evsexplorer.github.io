@@ -12,6 +12,7 @@ export function Header({ t, language, setLanguage }: HeaderProps) {
     { href: "#product", label: t.nav.product },
     { href: "#features", label: t.nav.features },
     { href: "#api", label: t.nav.api },
+    { href: "#ai", label: t.nav.ai },
     { href: "#contact", label: t.nav.contact },
   ];
 

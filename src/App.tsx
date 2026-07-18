@@ -6,6 +6,7 @@ import { Personas } from "./components/Personas";
 import { Tour } from "./components/Tour";
 import { Features } from "./components/Features";
 import { ApiSection } from "./components/ApiSection";
+import { AiSection } from "./components/AiSection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -41,6 +42,7 @@ export function App() {
         <Tour t={t} />
         <Features t={t} />
         <ApiSection t={t} />
+        <AiSection t={t} />
         <Contact t={t} />
       </main>
       <Footer t={t} />
