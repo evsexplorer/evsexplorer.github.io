@@ -11,8 +11,8 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
 const titles: Record<Language, string> = {
-  en: "EVSExplorer - Professional OCPP Testing & Monitoring",
-  de: "EVSExplorer - Professionelles OCPP Testen & Überwachen",
+  en: "EVSExplorer - OCPP 2.0.1 Testing & Monitoring for Charging Stations",
+  de: "EVSExplorer - OCPP 2.0.1 Testen & Überwachen von Ladestationen",
 };
 
 function initialLanguage(): Language {

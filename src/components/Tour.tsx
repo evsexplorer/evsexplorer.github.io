@@ -1,10 +1,10 @@
 import { Check } from "lucide-react";
 import type { Translation } from "../translations";
 import { Screenshot } from "./Screenshot";
-import messagesShot from "../assets/shots/messages.png";
-import connectionsShot from "../assets/shots/connections.png";
-import transactionShot from "../assets/shots/transaction.png";
-import consoleShot from "../assets/shots/console.png";
+import messagesShot from "../assets/shots/messages.webp";
+import connectionsShot from "../assets/shots/connections.webp";
+import transactionShot from "../assets/shots/transaction.webp";
+import consoleShot from "../assets/shots/console.webp";
 
 const shots = [messagesShot, connectionsShot, transactionShot, consoleShot];
 

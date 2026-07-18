@@ -17,6 +17,7 @@ export function Screenshot({ src, alt, eager }: ScreenshotProps) {
         src={src}
         alt={alt}
         loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : "auto"}
         className="block w-full"
         width={2880}
         height={1800}

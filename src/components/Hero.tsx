@@ -1,18 +1,21 @@
 import { ArrowRight, Check } from "lucide-react";
 import type { Translation } from "../translations";
 import { Screenshot } from "./Screenshot";
-import dashboardShot from "../assets/shots/dashboard.png";
+import dashboardShot from "../assets/shots/dashboard.webp";
 
 export function Hero({ t }: { t: Translation }) {
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-navy-50 to-white">
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center rounded-full bg-navy-900 px-4 py-1.5 text-sm font-medium text-white">
-            {t.tagline}
-          </p>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
-            {t.heroTitle}
+          {/* the keyword-bearing tagline is part of the h1 for SEO, styled as a pill */}
+          <h1>
+            <span className="inline-flex items-center rounded-full bg-navy-900 px-4 py-1.5 text-sm font-medium text-white">
+              {t.tagline}
+            </span>
+            <span className="mt-6 block text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
+              {t.heroTitle}
+            </span>
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-navy-600">
             {t.heroDescription}

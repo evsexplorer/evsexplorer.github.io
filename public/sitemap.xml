@@ -33,19 +33,4 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://evsexplorer.com?lang=de"/>
   </url>
   
-  <!-- Section anchors for better indexing -->
-  <url>
-    <loc>https://evsexplorer.com#features</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://evsexplorer.com#contact</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
 </urlset>
