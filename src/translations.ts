@@ -191,11 +191,13 @@ export const translations = {
     aiSubtitle:
       "The REST API is designed for efficient use by LLM-based agents, and EVSExplorer ships with a skill file that teaches your AI assistant the domain model, the interaction patterns and the common workflows — so it can operate the bench for you.",
     aiBullets: [
+      "Self-teaching: the instance serves its skill file at /api/skill.md — point Claude Code or any agentic tool at it and the agent learns the domain model and workflows on the spot",
       "Token-efficient by design: server-side limits, time-range filters, action exclusion and sparse field selection keep responses small enough for an LLM context window",
       "Machine-readable error codes and an asynchronous command pattern that agents can poll deterministically",
-      "The skill file covers worked workflows — inspect the last boot sequence, configure auto-responses, pull a charging curve — ready for Claude Code and other agentic tools",
-      "The OpenAPI spec is served by the instance itself, so agents can discover every endpoint at runtime",
+      "The OpenAPI spec is served by the instance too, so agents can discover every endpoint at runtime",
     ],
+    aiTranscriptCaption:
+      "From a real agent session (Claude CLI) against a bench instance — recreated with the demo identities.",
 
     // Contact
     contactTitle: "Put EVSExplorer on your bench",
@@ -410,11 +412,13 @@ export const translations = {
     aiSubtitle:
       "Die REST-API ist auf die effiziente Nutzung durch LLM-basierte Agenten ausgelegt, und EVSExplorer liefert eine Skill-Datei mit, die Ihrem KI-Assistenten das Domänenmodell, die Interaktionsmuster und die typischen Arbeitsabläufe beibringt — damit er den Prüfstand für Sie bedient.",
     aiBullets: [
+      "Selbsterklärend: die Instanz liefert ihre Skill-Datei unter /api/skill.md aus — verweisen Sie Claude Code oder ein anderes agentisches Tool darauf und der Agent lernt Domänenmodell und Workflows an Ort und Stelle",
       "Token-effizient von Haus aus: serverseitige Limits, Zeitfilter, Aktions-Ausschluss und schlanke Feldauswahl halten Antworten klein genug für ein LLM-Kontextfenster",
       "Maschinenlesbare Fehlercodes und ein asynchrones Kommando-Muster, das Agenten deterministisch abfragen können",
-      "Die Skill-Datei enthält ausgearbeitete Workflows — letzte Boot-Sequenz untersuchen, automatische Antworten konfigurieren, Ladekurve abrufen — bereit für Claude Code und andere agentische Tools",
-      "Die OpenAPI-Spezifikation wird von der Instanz selbst ausgeliefert, sodass Agenten jeden Endpunkt zur Laufzeit entdecken können",
+      "Auch die OpenAPI-Spezifikation wird von der Instanz ausgeliefert, sodass Agenten jeden Endpunkt zur Laufzeit entdecken können",
     ],
+    aiTranscriptCaption:
+      "Aus einer echten Agenten-Session (Claude CLI) gegen eine Prüfstand-Instanz — nachgestellt mit den Demo-Identitäten.",
 
     contactTitle: "Holen Sie EVSExplorer auf Ihren Prüfstand",
     contactSubtitle:
