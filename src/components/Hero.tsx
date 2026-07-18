@@ -1,157 +1,51 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
-import { translations } from './translations';
+import { ArrowRight, Check } from "lucide-react";
+import type { Translation } from "../translations";
+import { Screenshot } from "./Screenshot";
+import dashboardShot from "../assets/shots/dashboard.png";
 
-interface HeroProps {
-  language: 'en' | 'de';
-}
-
-export function Hero({ language }: HeroProps) {
-  const t = translations[language];
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToFeatures = () => {
-    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+export function Hero({ t }: { t: Translation }) {
   return (
-    <section id="main-content" className="relative bg-gradient-to-br from-gray-50 to-white py-20 lg:py-32" role="banner">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="h-full w-full"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 1px 1px, #0E1E42 1px, transparent 0)
-            `,
-            backgroundSize: '20px 20px'
-          }}
-        />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          {/* Tagline */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 mb-8"
-          style={{ backgroundColor: '#0E1E42' }}>
-            <span 
-              className="text-sm font-medium"
-              style={{ color: 'white' }}
-            >
-              {t.tagline}
-            </span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="max-w-4xl mx-auto mb-6">
-            <span 
-              className="block"
-              style={{ color: '#0E1E42' }}
-            >
-              {t.heroTitle}
-            </span>
+    <section id="top" className="relative overflow-hidden bg-gradient-to-b from-navy-50 to-white">
+      <div className="mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="inline-flex items-center rounded-full bg-navy-900 px-4 py-1.5 text-sm font-medium text-white">
+            {t.tagline}
+          </p>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
+            {t.heroTitle}
           </h1>
-
-          {/* Description */}
-          <p className="max-w-3xl mx-auto text-gray-600 mb-10">
+          <p className="mt-6 text-lg leading-relaxed text-navy-600">
             {t.heroDescription}
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={scrollToContact}
-              size="lg"
-              className="inline-flex items-center px-8 py-4 hover:shadow-lg hover:opacity-90"
-              style={{ backgroundColor: '#32AEE2' }}
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-500 px-7 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
             >
-              {t.getStarted}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            
-            <Button 
-              variant="outline"
-              size="lg"
-              onClick={scrollToFeatures}
-              className="inline-flex items-center px-8 py-4 hover:shadow-lg"
-              style={{ 
-                borderColor: '#0E1E42',
-                color: '#0E1E42'
-              }}
+              {t.heroCtaPrimary}
+              <ArrowRight className="size-5" />
+            </a>
+            <a
+              href="#product"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-navy-300 px-7 py-3 font-semibold text-navy-900 transition-colors hover:border-navy-400 hover:bg-white"
             >
-              {t.learnMore}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+              {t.heroCtaSecondary}
+            </a>
           </div>
 
-          {/* Visual Elements */}
-          <div className="mt-16 relative">
-            <div className="flex justify-center items-center space-x-8">
-              {/* Connection Indicators */}
-              <div className="flex-col items-center space-y-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-center space-x-2">
-                    <div 
-                      className="w-3 h-3 rounded-full animate-pulse"
-                      style={{ backgroundColor: '#A1C736' }}
-                    />
-                    <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-transparent via-current to-transparent animate-pulse"
-                        style={{ color: '#32AEE2' }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <ul className="mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-navy-600">
+            {t.heroHighlights.map((item) => (
+              <li key={item} className="flex items-center gap-1.5">
+                <Check className="size-4 text-lime-500" aria-hidden />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-              {/* Central Server Representation */}
-              <div className="relative">
-                <div 
-                  className="w-24 h-24 rounded-xl flex items-center justify-center shadow-lg"
-                  style={{ backgroundColor: '#0E1E42' }}
-                >
-                  <div className="text-white text-center">
-                    <div className="text-xs">OCPP</div>
-                    <div className="text-sm font-bold">2.0.1</div>
-                  </div>
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center">
-                  <div 
-                    className="w-3 h-3 rounded-full animate-ping"
-                    style={{ backgroundColor: '#A1C736' }}
-                  />
-                </div>
-              </div>
-
-              {/* More Connection Indicators */}
-              <div className="hidden sm:flex flex-col items-center space-y-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-center space-x-2">
-                    <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-transparent via-current to-transparent animate-pulse"
-                        style={{ 
-                          color: '#32AEE2',
-                          animationDelay: `${i * 0.5}s`
-                        }}
-                      />
-                    </div>
-                    <div 
-                      className="w-3 h-3 rounded-full animate-pulse"
-                      style={{ 
-                        backgroundColor: '#A1C736',
-                        animationDelay: `${i * 0.3}s`
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto mt-14 max-w-5xl">
+          <Screenshot src={dashboardShot} alt={t.heroImageAlt} eager />
         </div>
       </div>
     </section>

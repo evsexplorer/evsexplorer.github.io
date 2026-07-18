@@ -1,51 +1,19 @@
-import React from 'react';
-import { Separator } from './ui/separator';
-import evsexplorerLogo from 'figma:asset/cb71f464b18f6d1a5ae5e91219f7311c3c3df3dc.png';
-import { translations } from './translations';
+import type { Translation } from "../translations";
+import logoMark from "../assets/logo-mark.png";
 
-interface FooterProps {
-  language: 'en' | 'de';
-}
-
-export function Footer({ language }: FooterProps) {
-  const t = translations[language];
-
+export function Footer({ t }: { t: Translation }) {
   return (
-    <footer className="py-12" style={{ backgroundColor: '#0E1E42' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center space-y-8">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img src={evsexplorerLogo} alt="EVSExplorer" className="h-16 w-auto"/>
-          </div>
-
-          {/* Tagline */}
-          <p className="text-center text-gray-300 max-w-2xl">
-            {t.brandClaim}
-          </p>
-
-          {/* Technical Info */}
-          <div className="text-center pt-8 border-t border-gray-600 w-full">
-            <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-gray-400">
-              <span>OCPP 2.0.1</span>
-              <span>•</span>
-              <span>Test Backend (CSMS)</span>
-              <span>•</span>
-              <span>{language === 'en' ? 'OpenAPI Documentation' : 'OpenAPI Dokumentation'}</span>
-              <span>•</span>
-              <span>{language === 'en' ? 'Integrated swagger-ui' : 'Integriertes swagger-ui'}</span>
-              <span>•</span>
-              <span>JSON Schema Validation</span>
-            </div>
-          </div>
-
-          {/* Footer Bottom */}
-          <div className="flex sm:flex-row items-center justify-between w-full space-y-4 sm:space-y-0">
-            <p/>
-            <p className="text-gray-400 text-sm">{t.copyright}</p>
-          </div>
-
+    <footer className="bg-navy-925 py-10">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-6 lg:px-8">
+        <div className="flex items-center gap-2">
+          <img src={logoMark} alt="" className="h-8 w-auto" />
+          <span className="text-lg font-bold tracking-tight">
+            <span className="text-white">EVSE</span>
+            <span className="text-lime-400">xplorer</span>
+          </span>
         </div>
+        <p className="text-sm text-navy-300">{t.footerClaim}</p>
+        <p className="text-sm text-navy-400">{t.copyright}</p>
       </div>
     </footer>
   );

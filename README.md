@@ -1,11 +1,36 @@
+# EVSExplorer website
 
-  # Single Page Website for EVSExplorer
+Single-page marketing website for [EVSExplorer](https://www.evsexplorer.com) —
+an OCPP 2.0.1 CSMS companion for developing and testing charging stations. The
+content, screenshots and color theme come from the actual product
+(see the `evsexplorer-ui` repository).
 
-  This is a code bundle for Single Page Website for EVSExplorer. The original project is available at https://www.figma.com/design/g1Bb7yKqH772he9bnWNXja/Single-Page-Website-for-EVSExplorer.
+**Stack:** Vite 6 · React 19 · TypeScript · Tailwind CSS v4.
 
-  ## Running the code
+## Development
 
-  Run `npm i` to install the dependencies.
+Requires **Node.js ≥ 20**.
 
-  Run `npm run dev` to start the development server.
-  
+```sh
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build into build/
+npm run typecheck  # tsc only
+```
+
+## Deployment
+
+Pushes to `master` trigger the GitHub Actions workflow in
+`.github/workflows/build-deploy.yml`, which builds the site and deploys the
+`build/` directory to GitHub Pages. Everything in `public/` (favicons,
+`manifest.json`, `robots.txt`, `sitemap.xml`, the Open Graph image) is copied
+into the build automatically by Vite.
+
+## Content notes
+
+- The product screenshots in `src/assets/shots/` were captured from a live
+  EVSExplorer instance with anonymized charge point identities.
+- The site is bilingual (EN/DE, `?lang=` query parameter); all copy lives in
+  `src/translations.ts`.
+- SEO metadata (meta tags, Open Graph, JSON-LD structured data) is static in
+  `index.html`.

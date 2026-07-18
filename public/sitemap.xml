@@ -5,7 +5,7 @@
   <!-- Main page in English -->
   <url>
     <loc>https://evsexplorer.com</loc>
-    <lastmod>2025-01-09</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://evsexplorer.com?lang=en"/>
@@ -16,7 +16,7 @@
   <!-- English version -->
   <url>
     <loc>https://evsexplorer.com?lang=en</loc>
-    <lastmod>2025-01-09</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://evsexplorer.com?lang=en"/>
@@ -26,7 +26,7 @@
   <!-- German version -->
   <url>
     <loc>https://evsexplorer.com?lang=de</loc>
-    <lastmod>2025-01-09</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://evsexplorer.com?lang=en"/>
@@ -36,14 +36,14 @@
   <!-- Section anchors for better indexing -->
   <url>
     <loc>https://evsexplorer.com#features</loc>
-    <lastmod>2025-01-09</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://evsexplorer.com#contact</loc>
-    <lastmod>2025-01-09</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
