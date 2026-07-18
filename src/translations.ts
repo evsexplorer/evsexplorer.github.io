@@ -183,7 +183,7 @@ export const translations = {
       "Configure auto-responses and connection blocking on the fly",
     ],
     apiFootnote:
-      "Runs on your own hardware — a Raspberry Pi is enough. Your OCPP traffic never leaves the lab.",
+      "Also runs on your own hardware — a Raspberry Pi is enough. Your OCPP traffic never leaves the lab.",
 
     // AI section
     aiKicker: "AI-ready",
@@ -403,7 +403,7 @@ export const translations = {
       "Automatische Antworten und Verbindungsblockaden zur Laufzeit konfigurieren",
     ],
     apiFootnote:
-      "Läuft auf Ihrer eigenen Hardware — ein Raspberry Pi genügt. Ihr OCPP-Verkehr verlässt das Labor nicht.",
+      "Läuft auch auf Ihrer eigenen Hardware — ein Raspberry Pi genügt. Ihr OCPP-Verkehr verlässt das Labor nicht.",
 
     aiKicker: "Bereit für KI",
     aiTitle: "Lassen Sie Ihren KI-Agenten den Prüfstand bedienen",

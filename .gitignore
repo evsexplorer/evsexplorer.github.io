@@ -1,2 +1,6 @@
 build
 node_modules
+
+# local-only files (this is a public repo — see CLAUDE.local.md)
+local/
+CLAUDE.local.md
