@@ -1,4 +1,5 @@
-import type { Translation } from "../translations";
+import type { Language, Translation } from "../translations";
+import { localizeHref } from "../lib/router";
 
 // Legally required provider details (German Impressum, § 5 DDG).
 // Optional fields (phone, vatId, register, responsible) are hidden when left "".
@@ -32,14 +33,14 @@ function Address({ name, lines }: { name: string; lines: string[] }) {
   );
 }
 
-export function Impressum({ t }: { t: Translation }) {
+export function Impressum({ t, language }: { t: Translation; language: Language }) {
   const im = t.impressum;
 
   return (
     <main className="bg-white">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <a
-          href="#top"
+          href={localizeHref("/", language)}
           className="text-sm font-medium text-brand-600 transition-colors hover:text-brand-700 hover:underline"
         >
           ← {im.backToHome}

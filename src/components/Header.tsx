@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Language, Translation } from "../translations";
+import { localizeHref } from "../lib/router";
 import logoMark from "../assets/logo-mark.png";
 
 interface HeaderProps {
@@ -12,17 +13,18 @@ export function Header({ t, language, setLanguage }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "#product", label: t.nav.product },
-    { href: "#features", label: t.nav.features },
-    { href: "#api", label: t.nav.api },
-    { href: "#ai", label: t.nav.ai },
-    { href: "#contact", label: t.nav.contact },
+    { href: localizeHref("/#product", language), label: t.nav.product },
+    { href: localizeHref("/#features", language), label: t.nav.features },
+    { href: localizeHref("/#api", language), label: t.nav.api },
+    { href: localizeHref("/#ai", language), label: t.nav.ai },
+    { href: localizeHref("/blog", language), label: t.nav.articles },
+    { href: localizeHref("/#contact", language), label: t.nav.contact },
   ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="flex items-center gap-2">
+        <a href={localizeHref("/", language)} className="flex items-center gap-2">
           <img src={logoMark} alt="" className="h-9 w-auto" />
           <span className="text-xl font-bold tracking-tight">
             <span className="text-navy-900">EVSE</span>
@@ -66,7 +68,7 @@ export function Header({ t, language, setLanguage }: HeaderProps) {
           </div>
 
           <a
-            href="#contact"
+            href={localizeHref("/#contact", language)}
             className="hidden rounded-md bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 sm:block"
           >
             {t.requestDemo}
@@ -125,7 +127,7 @@ export function Header({ t, language, setLanguage }: HeaderProps) {
               </a>
             ))}
             <a
-              href="#contact"
+              href={localizeHref("/#contact", language)}
               onClick={() => setMenuOpen(false)}
               className="mt-1 rounded-md bg-brand-500 px-3 py-2 text-center text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 sm:hidden"
             >

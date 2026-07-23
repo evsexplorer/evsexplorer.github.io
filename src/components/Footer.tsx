@@ -1,7 +1,8 @@
-import type { Translation } from "../translations";
+import type { Language, Translation } from "../translations";
+import { localizeHref } from "../lib/router";
 import logoMark from "../assets/logo-mark.png";
 
-export function Footer({ t }: { t: Translation }) {
+export function Footer({ t, language }: { t: Translation; language: Language }) {
   return (
     <footer className="bg-navy-925 py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-6 lg:px-8">
@@ -18,7 +19,7 @@ export function Footer({ t }: { t: Translation }) {
         <p className="text-sm text-navy-300">{t.footerClaim}</p>
         <p className="text-sm text-navy-400">{t.copyright}</p>
         <a
-          href="#impressum"
+          href={localizeHref("/impressum", language)}
           className="text-sm text-navy-400 transition-colors hover:text-lime-400"
         >
           {t.impressumLink}

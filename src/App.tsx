@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { translations, type Language } from "./translations";
+import { parsePath, buildPath, type Route } from "./lib/router";
+import { pageMeta } from "./lib/seo";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Personas } from "./components/Personas";
@@ -10,67 +12,109 @@ import { AiSection } from "./components/AiSection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Impressum } from "./components/Impressum";
+import { Blog } from "./components/Blog";
+import { BlogPost } from "./components/BlogPost";
 
-const titles: Record<Language, string> = {
-  en: "EVSExplorer - OCPP 2.0.1 Testing & Monitoring for Charging Stations",
-  de: "EVSExplorer - OCPP 2.0.1 Testen & Überwachen von Ladestationen",
-};
-
-function initialLanguage(): Language {
-  const param = new URLSearchParams(window.location.search).get("lang");
-  if (param === "de" || param === "en") return param;
-  return navigator.language.toLowerCase().startsWith("de") ? "de" : "en";
-}
-
-type Route = "home" | "impressum";
-
-function currentRoute(): Route {
-  return window.location.hash === "#impressum" ? "impressum" : "home";
-}
-
-export function App() {
-  const [language, setLanguage] = useState<Language>(initialLanguage);
-  const [route, setRoute] = useState<Route>(currentRoute);
+export function App({
+  initialRoute,
+  initialLang,
+}: {
+  initialRoute: Route;
+  initialLang: Language;
+}) {
+  const [language, setLanguage] = useState<Language>(initialLang);
+  const [route, setRoute] = useState<Route>(initialRoute);
+  const [nav, setNav] = useState(0);
   const t = translations[language];
 
+  // Client-side navigation to an in-app URL.
+  function go(href: string) {
+    const url = new URL(href, window.location.href);
+    const { lang, route: r } = parsePath(url.pathname);
+    window.history.pushState(null, "", url.pathname + url.search + url.hash);
+    setLanguage(lang);
+    setRoute(r);
+    setNav((n) => n + 1);
+  }
+
+  // Intercept same-origin link clicks so navigation stays a SPA transition.
   useEffect(() => {
-    const onHashChange = () => setRoute(currentRoute());
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    function onClick(e: MouseEvent) {
+      if (
+        e.defaultPrevented ||
+        e.button !== 0 ||
+        e.metaKey ||
+        e.ctrlKey ||
+        e.shiftKey ||
+        e.altKey
+      )
+        return;
+      const anchor = (e.target as HTMLElement).closest("a");
+      if (!anchor) return;
+      const target = anchor.getAttribute("target");
+      if (target && target !== "_self") return;
+      if (anchor.hasAttribute("download")) return;
+      const href = anchor.getAttribute("href");
+      if (!href) return;
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      e.preventDefault();
+      go(url.pathname + url.search + url.hash);
+    }
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
   }, []);
 
   useEffect(() => {
-    if (route === "impressum") {
-      window.scrollTo(0, 0);
-      return;
+    function onPop() {
+      const { lang, route: r } = parsePath(window.location.pathname);
+      setLanguage(lang);
+      setRoute(r);
+      setNav((n) => n + 1);
     }
-    // Coming back to the landing page via a section anchor (e.g. a header nav
-    // click on the Impressum page): the browser's native scroll fired while the
-    // Impressum view was still mounted, so the target section did not exist yet
-    // and it fell back to the top. Now that the sections are rendered, scroll to
-    // the target ourselves.
-    const hash = window.location.hash;
-    if (hash && hash !== "#impressum" && hash !== "#top") {
-      document.getElementById(hash.slice(1))?.scrollIntoView();
-    }
-  }, [route]);
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
+  // After each navigation, scroll to the hash target (home sections) or the top.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && hash !== "#top") {
+      const el = document.getElementById(hash.slice(1));
+      if (el) {
+        el.scrollIntoView();
+        return;
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [nav]);
+
+  // Keep the document language, title and description in sync on the client
+  // (the prerendered HTML already carries the correct values for crawlers).
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title =
-      route === "impressum"
-        ? `${t.impressum.title} - EVSExplorer`
-        : titles[language];
-    const url = new URL(window.location.href);
-    url.searchParams.set("lang", language);
-    window.history.replaceState(null, "", url);
-  }, [language, route, t]);
+    const meta = pageMeta(route, language);
+    document.title = meta.title;
+    let desc = document.querySelector('meta[name="description"]');
+    if (!desc) {
+      desc = document.createElement("meta");
+      desc.setAttribute("name", "description");
+      document.head.appendChild(desc);
+    }
+    desc.setAttribute("content", meta.description);
+  }, [route, language]);
+
+  const switchLanguage = (lang: Language) => go(buildPath(route, lang));
 
   return (
     <>
-      <Header t={t} language={language} setLanguage={setLanguage} />
-      {route === "impressum" ? (
-        <Impressum t={t} />
+      <Header t={t} language={language} setLanguage={switchLanguage} />
+      {route.name === "impressum" ? (
+        <Impressum t={t} language={language} />
+      ) : route.name === "blog" ? (
+        <Blog t={t} language={language} />
+      ) : route.name === "post" ? (
+        <BlogPost t={t} language={language} slug={route.slug} />
       ) : (
         <main>
           <Hero t={t} />
@@ -82,7 +126,7 @@ export function App() {
           <Contact t={t} />
         </main>
       )}
-      <Footer t={t} />
+      <Footer t={t} language={language} />
     </>
   );
 }

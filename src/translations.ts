@@ -8,6 +8,7 @@ export const translations = {
       features: "Features",
       api: "REST API",
       ai: "AI",
+      articles: "Articles",
       contact: "Contact",
     },
     requestDemo: "Request a demo",
@@ -224,6 +225,19 @@ export const translations = {
       },
     ],
 
+    // Blog / articles
+    blog: {
+      navLabel: "Articles",
+      title: "Technical articles",
+      subtitle: "Deep dives on OCPP 2.0.1 — messages, transport and the bench.",
+      readArticle: "Read article",
+      backToList: "All articles",
+      empty: "No articles yet — check back soon.",
+      notFoundTitle: "Article not found",
+      notFoundText: "This article does not exist or has been moved.",
+      translationNote: "Also available in",
+    },
+
     // Footer
     footerClaim: "Professional OCPP 2.0.1 testing & monitoring",
     copyright: "© 2026 EVSExplorer. All rights reserved.",
@@ -257,6 +271,7 @@ export const translations = {
       features: "Funktionen",
       api: "REST-API",
       ai: "KI",
+      articles: "Artikel",
       contact: "Kontakt",
     },
     requestDemo: "Demo anfragen",
@@ -300,7 +315,7 @@ export const translations = {
 
     tourTitle: "Ein genauerer Blick",
     tourSubtitle:
-      "Echte Screenshots, echter Prüfstands-Verkehr — so sieht der Alltag mit EVSExplorer aus.",
+      "Echte Screenshots, echte Datenflüsse! So sieht der Alltag mit EVSExplorer aus.",
     tour: [
       {
         kicker: "Nachrichten-Log",
@@ -465,6 +480,20 @@ export const translations = {
         description: "Maßgeschneiderte Implementierungen für Ihre Anforderungen",
       },
     ],
+
+    // Blog / Artikel
+    blog: {
+      navLabel: "Artikel",
+      title: "Technische Artikel",
+      subtitle:
+        "Tiefgehende Einblicke in OCPP 2.0.1 — Nachrichten, Transport und Prüfstand.",
+      readArticle: "Artikel lesen",
+      backToList: "Alle Artikel",
+      empty: "Noch keine Artikel — schauen Sie bald wieder vorbei.",
+      notFoundTitle: "Artikel nicht gefunden",
+      notFoundText: "Dieser Artikel existiert nicht oder wurde verschoben.",
+      translationNote: "Auch verfügbar auf",
+    },
 
     footerClaim: "Professionelles OCPP-2.0.1-Testing & -Monitoring",
     copyright: "© 2026 EVSExplorer. Alle Rechte vorbehalten.",
