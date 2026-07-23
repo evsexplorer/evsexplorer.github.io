@@ -14,6 +14,12 @@ export function Footer({ t }: { t: Translation }) {
         </div>
         <p className="text-sm text-navy-300">{t.footerClaim}</p>
         <p className="text-sm text-navy-400">{t.copyright}</p>
+        <a
+          href="#impressum"
+          className="text-sm text-navy-400 transition-colors hover:text-lime-400"
+        >
+          {t.impressumLink}
+        </a>
       </div>
     </footer>
   );

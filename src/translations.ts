@@ -227,6 +227,28 @@ export const translations = {
     // Footer
     footerClaim: "Professional OCPP 2.0.1 testing & monitoring",
     copyright: "© 2026 EVSExplorer. All rights reserved.",
+
+    // Impressum (legal notice)
+    impressumLink: "Legal notice",
+    impressum: {
+      title: "Legal notice",
+      subtitle: "Information pursuant to § 5 DDG",
+      providerHeading: "Provider",
+      contactHeading: "Contact",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      vatHeading: "VAT identification number",
+      vatText:
+        "VAT identification number pursuant to § 27a of the German VAT Act (UStG):",
+      registerHeading: "Register entry",
+      registerCourtLabel: "Registering court",
+      registerNumberLabel: "Register number",
+      responsibleHeading: "Responsible for the content pursuant to § 18 (2) MStV",
+      disputeHeading: "Consumer dispute resolution",
+      disputeText:
+        "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
+      backToHome: "Back to home",
+    },
   },
 
   de: {
@@ -446,6 +468,28 @@ export const translations = {
 
     footerClaim: "Professionelles OCPP-2.0.1-Testing & -Monitoring",
     copyright: "© 2026 EVSExplorer. Alle Rechte vorbehalten.",
+
+    // Impressum
+    impressumLink: "Impressum",
+    impressum: {
+      title: "Impressum",
+      subtitle: "Angaben gemäß § 5 DDG",
+      providerHeading: "Anbieter",
+      contactHeading: "Kontakt",
+      emailLabel: "E-Mail",
+      phoneLabel: "Telefon",
+      vatHeading: "Umsatzsteuer-Identifikationsnummer",
+      vatText:
+        "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:",
+      registerHeading: "Registereintrag",
+      registerCourtLabel: "Registergericht",
+      registerNumberLabel: "Registernummer",
+      responsibleHeading: "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+      disputeHeading: "Verbraucherstreitbeilegung",
+      disputeText:
+        "Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      backToHome: "Zurück zur Startseite",
+    },
   },
 };
 
