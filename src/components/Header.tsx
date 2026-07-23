@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Language, Translation } from "../translations";
 import logoMark from "../assets/logo-mark.png";
 
@@ -8,6 +9,8 @@ interface HeaderProps {
 }
 
 export function Header({ t, language, setLanguage }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navItems = [
     { href: "#product", label: t.nav.product },
     { href: "#features", label: t.nav.features },
@@ -68,8 +71,69 @@ export function Header({ t, language, setLanguage }: HeaderProps) {
           >
             {t.requestDemo}
           </a>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label="Menu"
+            className="flex h-10 w-10 items-center justify-center rounded-md border border-navy-200 text-navy-700 transition-colors hover:bg-navy-50 lg:hidden"
+          >
+            <svg
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              {menuOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <nav
+          id="mobile-nav"
+          className="border-t border-navy-100 bg-white lg:hidden"
+          aria-label="Main"
+        >
+          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3 sm:px-6">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-md px-3 py-2 text-base font-medium text-navy-700 transition-colors hover:bg-navy-50 hover:text-brand-600"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="mt-1 rounded-md bg-brand-500 px-3 py-2 text-center text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 sm:hidden"
+            >
+              {t.requestDemo}
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
