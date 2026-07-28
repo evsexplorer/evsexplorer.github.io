@@ -3,7 +3,8 @@ import { localizeHref } from "../lib/router";
 
 // Legally required provider details (German Impressum, § 5 DDG).
 // Optional fields (phone, vatId, register, responsible) are hidden when left "".
-const provider = {
+// Exported so the privacy policy can name the same controller from one source.
+export const provider = {
   name: "Matthias Brachmann",
   addressLines: [
     "Alte Renninger Str. 117",

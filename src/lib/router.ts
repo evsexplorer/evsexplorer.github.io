@@ -4,6 +4,7 @@ import type { Language } from "../translations";
 export type Route =
   | { name: "home" }
   | { name: "impressum" }
+  | { name: "datenschutz" }
   | { name: "blog" }
   | { name: "post"; slug: string };
 
@@ -26,6 +27,7 @@ export function parsePath(pathname: string): { lang: Language; route: Route } {
   let route: Route;
   if (path === "/") route = { name: "home" };
   else if (path === "/impressum") route = { name: "impressum" };
+  else if (path === "/datenschutz") route = { name: "datenschutz" };
   else if (path === "/blog") route = { name: "blog" };
   else if (path.startsWith("/blog/"))
     route = { name: "post", slug: decodeURIComponent(path.slice("/blog/".length)) };
@@ -43,6 +45,9 @@ export function buildPath(route: Route, lang: Language): string {
       break;
     case "impressum":
       path = "/impressum";
+      break;
+    case "datenschutz":
+      path = "/datenschutz";
       break;
     case "blog":
       path = "/blog";

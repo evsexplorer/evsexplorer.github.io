@@ -12,6 +12,7 @@ import { AiSection } from "./components/AiSection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Impressum } from "./components/Impressum";
+import { Datenschutz } from "./components/Datenschutz";
 import { Blog } from "./components/Blog";
 import { BlogPost } from "./components/BlogPost";
 
@@ -111,6 +112,8 @@ export function App({
       <Header t={t} language={language} setLanguage={switchLanguage} />
       {route.name === "impressum" ? (
         <Impressum t={t} language={language} />
+      ) : route.name === "datenschutz" ? (
+        <Datenschutz t={t} language={language} />
       ) : route.name === "blog" ? (
         <Blog t={t} language={language} />
       ) : route.name === "post" ? (

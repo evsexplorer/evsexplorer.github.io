@@ -24,6 +24,11 @@ const impressumDescription: Record<Language, string> = {
   de: "Impressum und Anbieterkennzeichnung von EVSExplorer.",
 };
 
+const datenschutzDescription: Record<Language, string> = {
+  en: "Privacy policy for EVSExplorer: how personal data is processed on this website. No cookies, no tracking, no analytics.",
+  de: "Datenschutzerklärung von EVSExplorer: wie personenbezogene Daten auf dieser Website verarbeitet werden. Keine Cookies, kein Tracking, keine Analyse.",
+};
+
 const HOME_KEYWORDS =
   "OCPP, OCPP 2.0.1, ocpp compliance testing, automated charge point testing, EVSE monitoring, charge point monitoring, WebSocket server, EV charging infrastructure, OCPP protocol testing";
 
@@ -72,13 +77,27 @@ export function pageMeta(route: Route, lang: Language): PageMeta {
       lang,
     };
   }
+  if (route.name === "datenschutz") {
+    return {
+      title: `${t.datenschutz.title} - EVSExplorer`,
+      description: datenschutzDescription[lang],
+      langs: LANGS,
+      route,
+      lang,
+    };
+  }
   return { title: homeTitle[lang], description: homeDescription[lang], langs: LANGS, route, lang };
 }
 
 /** Every prerenderable {route, lang} across both languages. */
 export function allRoutes(): { route: Route; lang: Language }[] {
   const out: { route: Route; lang: Language }[] = [];
-  const base: Route[] = [{ name: "home" }, { name: "blog" }, { name: "impressum" }];
+  const base: Route[] = [
+    { name: "home" },
+    { name: "blog" },
+    { name: "impressum" },
+    { name: "datenschutz" },
+  ];
   for (const lang of LANGS) for (const route of base) out.push({ route, lang });
   for (const post of listPosts("en")) {
     for (const lang of post.langs) out.push({ route: { name: "post", slug: post.slug }, lang });

@@ -263,6 +263,82 @@ export const translations = {
         "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
       backToHome: "Back to home",
     },
+
+    // Privacy policy
+    datenschutzLink: "Privacy",
+    datenschutz: {
+      title: "Privacy policy",
+      subtitle: "How personal data is processed on this website",
+      updated: "Last updated: July 2026",
+
+      introHeading: "Overview",
+      introText:
+        "This privacy policy explains which personal data is processed when you visit this website. The site works entirely without cookies, without tracking and without analytics or advertising services. In essence, only the technically necessary access data that arises when the pages are delivered is processed.",
+
+      controllerHeading: "Controller",
+      controllerIntro:
+        "The controller responsible for data processing on this website is:",
+
+      hostingHeading: "Hosting (GitHub Pages)",
+      hostingText:
+        "This website is hosted by GitHub, Inc. and delivered through their GitHub Pages service. When you access the website, GitHub, acting as our host, processes technical access data. This includes in particular your IP address, which counts as personal data and is required so that the requested pages can be delivered to your device.",
+      hostingPurpose:
+        "As the operator of the website we have no direct access to this data ourselves and cannot state in detail which data GitHub stores or for how long. For those details please refer to GitHub's privacy statement (linked below). The processing serves the delivery, stability and security of the website.",
+      hostingLegalBasis:
+        "The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest lies in the reliable and secure presentation of the website.",
+      hostingTransfer:
+        "GitHub is a company based in the USA. Your data may therefore be processed in the United States. GitHub is certified under the EU-US Data Privacy Framework, which ensures an adequate level of data protection within the meaning of Art. 45 GDPR.",
+      hostingProviderLabel: "Host:",
+      hostingProvider: [
+        "GitHub, Inc.",
+        "88 Colin P. Kelly Jr. Street",
+        "San Francisco, CA 94107",
+        "USA",
+      ],
+      hostingPrivacyLinkLabel: "GitHub privacy statement",
+      hostingPrivacyLinkUrl:
+        "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+
+      tlsHeading: "Encryption (TLS)",
+      tlsText:
+        "The website is delivered exclusively over an encrypted HTTPS (TLS) connection. This protects the data transferred between your browser and the server from being read by third parties.",
+
+      contactHeading: "Contact by email",
+      contactText:
+        "If you contact us by email (hello@evsexplorer.com), we process the details you provide (your email address and the content of your message) in order to handle your request. The legal basis is Art. 6 (1) (b) GDPR where your request relates to entering into or performing a contract, otherwise Art. 6 (1) (f) GDPR (interest in dealing with your request). This data is not passed on to third parties without your explicit consent. We delete this data once it is no longer needed for that purpose and no statutory retention obligations apply.",
+
+      noTrackingHeading: "No cookies, no tracking",
+      noTrackingText:
+        "This website sets no cookies and uses no analytics or tracking services, no advertising and no social media plugins. It also loads no external resources (such as fonts or scripts) from third-party servers. For this reason no consent under Section 25 TDDDG (the German Telecommunications and Digital Services Data Protection Act) is required and no cookie banner is shown.",
+
+      rightsHeading: "Your rights",
+      rightsIntro:
+        "With regard to your personal data you have the following rights:",
+      rightsItems: [
+        "Right of access (Art. 15 GDPR)",
+        "Right to rectification (Art. 16 GDPR)",
+        "Right to erasure (Art. 17 GDPR)",
+        "Right to restriction of processing (Art. 18 GDPR)",
+        "Right to data portability (Art. 20 GDPR)",
+        "Right to object to processing (Art. 21 GDPR)",
+      ],
+      rightsOutro:
+        "To exercise any of these rights, an informal message to the contact details above is sufficient.",
+
+      complaintHeading: "Right to lodge a complaint",
+      complaintText:
+        "You have the right to lodge a complaint with a data protection supervisory authority, in particular in the member state of your residence or the place of the alleged infringement. The authority responsible for us is:",
+      complaintAuthority: [
+        "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg",
+        "Lautenschlagerstraße 20",
+        "70173 Stuttgart",
+        "Germany",
+      ],
+      complaintLinkLabel: "baden-wuerttemberg.datenschutz.de",
+      complaintLinkUrl: "https://www.baden-wuerttemberg.datenschutz.de",
+
+      backToHome: "Back to home",
+    },
   },
 
   de: {
@@ -517,6 +593,82 @@ export const translations = {
       disputeHeading: "Verbraucherstreitbeilegung",
       disputeText:
         "Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      backToHome: "Zurück zur Startseite",
+    },
+
+    // Datenschutzerklärung
+    datenschutzLink: "Datenschutz",
+    datenschutz: {
+      title: "Datenschutzerklärung",
+      subtitle: "Informationen zur Verarbeitung personenbezogener Daten",
+      updated: "Stand: Juli 2026",
+
+      introHeading: "Überblick",
+      introText:
+        "Diese Datenschutzerklärung informiert Sie darüber, welche personenbezogenen Daten beim Besuch dieser Website verarbeitet werden. Die Website kommt vollständig ohne Cookies, ohne Tracking und ohne Analyse- oder Werbedienste aus. Verarbeitet werden im Wesentlichen nur die technisch notwendigen Zugriffsdaten, die beim Ausliefern der Seiten anfallen.",
+
+      controllerHeading: "Verantwortlicher",
+      controllerIntro:
+        "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
+
+      hostingHeading: "Hosting (GitHub Pages)",
+      hostingText:
+        "Diese Website wird bei GitHub, Inc. gehostet und über deren Dienst GitHub Pages ausgeliefert. Wenn Sie die Website aufrufen, verarbeitet GitHub als unser Hoster technische Zugriffsdaten. Dazu gehört insbesondere Ihre IP-Adresse, die als personenbezogenes Datum gilt und erforderlich ist, damit die aufgerufenen Seiten an Ihr Gerät ausgeliefert werden können.",
+      hostingPurpose:
+        "Als Betreiber der Website haben wir dabei keinen unmittelbaren Zugriff auf diese Daten und können nicht im Einzelnen angeben, welche Daten GitHub speichert und wie lange. Für diese Details verweisen wir auf die Datenschutzerklärung von GitHub (siehe unten). Die Verarbeitung dient der Auslieferung, Stabilität und Sicherheit der Website.",
+      hostingLegalBasis:
+        "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der zuverlässigen und sicheren Bereitstellung der Website.",
+      hostingTransfer:
+        "GitHub ist ein Unternehmen mit Sitz in den USA. Ihre Daten können daher in den USA verarbeitet werden. GitHub ist unter dem EU-US Data Privacy Framework zertifiziert, wodurch ein angemessenes Datenschutzniveau im Sinne von Art. 45 DSGVO gewährleistet wird.",
+      hostingProviderLabel: "Hoster:",
+      hostingProvider: [
+        "GitHub, Inc.",
+        "88 Colin P. Kelly Jr. Street",
+        "San Francisco, CA 94107",
+        "USA",
+      ],
+      hostingPrivacyLinkLabel: "Datenschutzerklärung von GitHub",
+      hostingPrivacyLinkUrl:
+        "https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement",
+
+      tlsHeading: "Verschlüsselung (TLS)",
+      tlsText:
+        "Die Website wird ausschließlich verschlüsselt über HTTPS (TLS) ausgeliefert. Dadurch werden die zwischen Ihrem Browser und dem Server übertragenen Daten gegen das Mitlesen durch Dritte geschützt.",
+
+      contactHeading: "Kontaktaufnahme per E-Mail",
+      contactText:
+        "Wenn Sie uns per E-Mail (hello@evsexplorer.com) kontaktieren, verarbeiten wir die von Ihnen übermittelten Angaben (Ihre E-Mail-Adresse sowie den Inhalt Ihrer Nachricht), um Ihre Anfrage zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage auf den Abschluss oder die Durchführung eines Vertrags gerichtet ist, andernfalls Art. 6 Abs. 1 lit. f DSGVO (Interesse an der Bearbeitung Ihrer Anfrage). Eine Weitergabe dieser Daten an Dritte erfolgt ohne Ihre ausdrückliche Einwilligung nicht. Wir löschen diese Daten, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
+
+      noTrackingHeading: "Keine Cookies, kein Tracking",
+      noTrackingText:
+        "Diese Website setzt keine Cookies und verwendet keine Analyse- oder Trackingdienste, keine Werbung und keine Social-Media-Plugins. Es werden auch keine externen Ressourcen (etwa Schriftarten oder Skripte) von Servern Dritter nachgeladen. Aus diesem Grund ist keine Einwilligung nach § 25 TDDDG erforderlich und es wird kein Cookie-Banner angezeigt.",
+
+      rightsHeading: "Ihre Rechte",
+      rightsIntro:
+        "Im Hinblick auf Ihre personenbezogenen Daten stehen Ihnen die folgenden Rechte zu:",
+      rightsItems: [
+        "Recht auf Auskunft (Art. 15 DSGVO)",
+        "Recht auf Berichtigung (Art. 16 DSGVO)",
+        "Recht auf Löschung (Art. 17 DSGVO)",
+        "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+        "Recht auf Datenübertragbarkeit (Art. 20 DSGVO)",
+        "Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)",
+      ],
+      rightsOutro:
+        "Zur Ausübung dieser Rechte genügt eine formlose Mitteilung an die oben genannten Kontaktdaten.",
+
+      complaintHeading: "Beschwerderecht bei der Aufsichtsbehörde",
+      complaintText:
+        "Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts oder des Orts des mutmaßlichen Verstoßes. Die für uns zuständige Aufsichtsbehörde ist:",
+      complaintAuthority: [
+        "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg",
+        "Lautenschlagerstraße 20",
+        "70173 Stuttgart",
+        "Deutschland",
+      ],
+      complaintLinkLabel: "baden-wuerttemberg.datenschutz.de",
+      complaintLinkUrl: "https://www.baden-wuerttemberg.datenschutz.de",
+
       backToHome: "Zurück zur Startseite",
     },
   },

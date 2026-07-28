@@ -18,12 +18,23 @@ export function Footer({ t, language }: { t: Translation; language: Language }) 
         </div>
         <p className="text-sm text-navy-300">{t.footerClaim}</p>
         <p className="text-sm text-navy-400">{t.copyright}</p>
-        <a
-          href={localizeHref("/impressum", language)}
-          className="text-sm text-navy-400 transition-colors hover:text-lime-400"
-        >
-          {t.impressumLink}
-        </a>
+        <nav className="flex items-center gap-4 text-sm text-navy-400">
+          <a
+            href={localizeHref("/impressum", language)}
+            className="transition-colors hover:text-lime-400"
+          >
+            {t.impressumLink}
+          </a>
+          <span aria-hidden="true" className="text-navy-600">
+            ·
+          </span>
+          <a
+            href={localizeHref("/datenschutz", language)}
+            className="transition-colors hover:text-lime-400"
+          >
+            {t.datenschutzLink}
+          </a>
+        </nav>
       </div>
     </footer>
   );
