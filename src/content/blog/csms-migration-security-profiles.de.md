@@ -2,7 +2,7 @@
 title: "Deine Wallbox, dein Backend? Warum die Migration einer Ladestation zu einem neuen CSMS am Security Profile scheitert"
 date: 2026-08-02
 description: "Der EU Data Act gibt Eigentümern das Recht, ihre Ladedaten an einen Dienst ihrer Wahl zu schicken. Ob das eine Sache von fünf Minuten oder ohne Mithilfe des neuen Betreibers technisch unmöglich ist, entscheiden die OCPP Security Profiles 1, 2 und 3."
-tags: [ocpp, security, certificates, afir]
+tags: [ocpp, security, certificates, data-act]
 ---
 
 Ein Kunde kauft eine Wallbox, nutzt sie zwei Jahre mit der Hersteller-App und
@@ -18,42 +18,25 @@ Security Profile, mit dem die Box läuft.
 
 ## Was die Regulierung tatsächlich sagt
 
-An dieser Stelle lohnt sich Präzision, denn die beiden relevanten EU-Verordnungen
-werden häufig vermischt.
+Maßgeblich ist hier der **EU Data Act (Verordnung (EU) 2023/2854)**, dessen
+Kernvorschriften seit dem 12. September 2025 gelten. Er erfasst vernetzte
+Produkte, und eine vernetzte Wallbox ist genau das. Nutzer (also die Personen und
+Unternehmen, die das Gerät besitzen oder mieten) haben das Recht, auf die durch
+die Nutzung erzeugten Daten zuzugreifen und diese mit Dritten ihrer Wahl zu
+teilen, und zwar mit minimalem rechtlichem und technischem Aufwand.
 
-**Der EU Data Act (Verordnung (EU) 2023/2854)** ist die Verordnung, auf die es
-für den Eigentümer ankommt. Ihre Kernvorschriften gelten seit dem 12. September
-2025. Sie erfasst vernetzte Produkte, und eine vernetzte Wallbox ist genau das.
-Nutzer (also die Personen und Unternehmen, die das Gerät besitzen oder mieten)
-haben das Recht, auf die durch die Nutzung erzeugten Daten zuzugreifen und diese
-mit Dritten ihrer Wahl zu teilen, und zwar mit minimalem rechtlichem und
-technischem Aufwand.
+Das ist ein echter Einschnitt. Die Ladedaten einer privat betriebenen Wallbox
+sind nichts mehr, was Hersteller oder vertraglich gebundener Backend-Anbieter als
+allein ihre Sache behandeln können. Will der Eigentümer, dass seine
+Ladevorgänge, Zählerstände und Ladeprofile in einem Tarifoptimierer oder einem
+Energiemanagement landen, steht das Gesetz auf seiner Seite.
 
-**AFIR (Verordnung (EU) 2023/1804)** wird in diesem Zusammenhang oft zitiert,
-begründet dieses Recht aber nicht. Sie sagt Folgendes:
-
-- Artikel 5(7): Betreiber von Ladepunkten müssen sicherstellen, dass alle von
-  ihnen betriebenen öffentlich zugänglichen Ladepunkte digital vernetzt sind,
-  also in Echtzeit Informationen senden und empfangen, bidirektional mit Netz
-  und Fahrzeug kommunizieren und aus der Ferne überwacht und gesteuert werden
-  können.
-- Artikel 5(8): neu errichtete oder erneuerte öffentlich zugängliche
-  Normalladepunkte müssen smartes Laden unterstützen.
-- Ist der Betreiber eines Ladepunkts nicht dessen Eigentümer, muss der
-  Eigentümer dem Betreiber einen Ladepunkt mit den technischen Eigenschaften
-  bereitstellen, die dem Betreiber die Erfüllung seiner Pflichten ermöglichen.
-
-Der letzte Satz kommt der Sache am nächsten, ist aber für das Verhältnis
-Eigentümer zu Betreiber geschrieben und nicht für einen privaten Nutzer, der das
-Backend wechseln will. Das Q&A-Dokument der Kommission zu AFIR behandelt weder
-einen Anbieterwechsel noch Datenzugriffsrechte von Nutzern.
-
-Der regulatorische Druck existiert also, er kommt aber aus dem Data Act. Und ein
-Recht auf die Daten ist nicht automatisch ein Recht, den OCPP-Endpunkt
-umzukonfigurieren. In der Praxis ist der sauberste Weg, Ladedaten in einen Dienst
-der eigenen Wahl zu bekommen, weiterhin: das CSMS dieses Dienstes direkt mit der
-Box sprechen zu lassen. Womit wir bei dem Teil sind, den keine Verordnung
-aufgeschrieben hat, nämlich was diese Migration technisch kostet.
+Ein Recht auf die Daten ist aber nicht automatisch ein Recht, den OCPP-Endpunkt
+umzukonfigurieren. Und in der Praxis ist der sauberste Weg, Ladedaten in einen
+Dienst der eigenen Wahl zu bekommen, weiterhin: das CSMS dieses Dienstes direkt
+mit der Box sprechen zu lassen, damit es das Laden auch steuern kann und nicht
+nur im Nachhinein mitliest. Womit wir bei dem Teil sind, den die Verordnung nicht
+beschreibt, nämlich was diese Migration technisch kostet.
 
 ## Was eine CSMS-Migration wirklich ist
 
