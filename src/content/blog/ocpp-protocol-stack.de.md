@@ -116,6 +116,12 @@ Feldbetrieb wird ein TLS-Profil dringend empfohlen. OCPP 2.0.1 ganz ohne Sicherh
 zu betreiben (manchmal auch als Profil 0 bezeichnet) ist technisch möglich, gilt
 aber ausdrücklich nicht als gültige OCPP-2.0.1-Implementierung.
 
+Welches Profil eine Station fährt, ist nicht nur eine Transportfrage. Es
+entscheidet auch darüber, wie viel Aufwand es später kostet, dieselbe Station auf
+ein anderes Backend umzubiegen, von drei Textfeldern bis zur Zertifikatszeremonie.
+Das ist das Thema von
+[Migration einer Ladestation zu einem neuen CSMS](/blog/csms-migration-security-profiles).
+
 ## Wie es in dieser Reihe weitergeht
 
 Nachdem Sie jetzt den Aufbau des Protokoll-Stack kennen, ist es an der Zeit zu verstehen,
