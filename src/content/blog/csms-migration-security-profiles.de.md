@@ -188,14 +188,13 @@ neue Betreiber keinen Out-of-band-Weg für das Enrollment anbietet oder das alte
 CSMS zum Abschied bereit ist, neuen Root und neues Stationszertifikat zu
 installieren, gibt es innerhalb von OCPP keinen Weg von A nach B.
 
-Die OCA beschreibt den Workaround für den Fertigungsfall, und er hat dieselbe
-Form: die Station verbindet sich zuerst mit einem Commissioning-Server, und
-dieser tauscht das Zertifikat gegen eines aus der Ziel-PKI, bevor die Station
-jemals mit dem produktiven CSMS spricht. Das ist ein Migrationsservice, den der
-neue Betreiber bauen muss. Über eine Einstellungsseite bekommt ein Eigentümer das
-nicht hin.
+Die OCA beschreibt den Workaround, der eigentlich für die Produktion gedacht ist:
+Die Station verbindet sich zuerst mit einem Commissioning-Server und dieser
+tauscht das Zertifikat gegen eines der Ziel-PKI, bevor die Station jemals mit dem
+produktiven CSMS spricht. Das ist ein Migrationsservice, den der neue Betreiber
+bauen muss. Über eine Einstellungsseite bekommt ein Eigentümer das nicht hin.
 
-### Die zwei Fallen, die es schlimmer machen
+### Zwei Fallen, die es schlimmer machen
 
 **Zurück geht es nicht.** Das Absenken des Security Profiles ist bewusst nicht
 Teil von OCPP und darf nicht per `SetVariablesRequest` oder `DataTransfer`
@@ -218,12 +217,12 @@ Profil unterstützen, das die Station bereits fährt, mindestens aber Profil 2.
 neuer Root wird nur akzeptiert, wenn er von dem Root signiert ist, den er ersetzt
 (M05.FR.09 bis M05.FR.13). Als Manipulationsschutz ist das sinnvoll, denn ein
 Angreifer müsste CSMS und CA gleichzeitig kompromittieren. Es bedeutet aber auch,
-dass der unabhängige Root eines neuen Betreibers niemals über OCPP installiert
+dass das unabhängige Root eines neuen Betreibers niemals über OCPP installiert
 werden kann, weil ihn die CA des bisherigen Betreibers signieren müsste. Für eine
 betreiberübergreifende Migration auf einer solchen Station ist der OCPP-Weg
 konstruktionsbedingt zu.
 
-## Wo es in der Praxis bricht
+## Woran es in der Praxis scheitert
 
 Stellt man die Profile dem gegenüber, was eine typische Heim-Wallbox lokal
 tatsächlich anbietet, sieht das so aus.
@@ -278,7 +277,7 @@ kein Support-Ticket:
 Der Data Act hat die Frage geklärt, wem die Ladedaten gehören. Die Mechanik hat
 er nicht geklärt, und die Mechanik steckt in einer Spezifikation, die davon
 ausgeht, dass ein kooperativer CPO jede Änderung steuert. Profil-1-Migrationen
-sind trivial und unsicher. Profil-2-Migrationen hängen an einer einzigen
+sind trivial aber unsicher. Profil-2-Migrationen hängen an einer einzigen
 PEM-Datei, für deren Installation die meisten Wallboxen dem Eigentümer keinen Weg
 anbieten. Profil-3-Migrationen verlangen eine Schlüsselzeremonie zwischen zwei
 Betreibern, die Wettbewerber sein können.

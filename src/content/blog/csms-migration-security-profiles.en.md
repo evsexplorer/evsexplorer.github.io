@@ -265,7 +265,7 @@ support ticket:
 The Data Act settled the question of who owns the charging data. It did not
 settle the mechanics, and the mechanics live in a spec that was written on the
 assumption that a cooperative CPO drives every change. Profile 1 migrations are
-trivial and insecure. Profile 2 migrations hinge on one PEM file that most
+trivial but insecure. Profile 2 migrations hinge on one PEM file that most
 wallboxes give the owner no way to install. Profile 3 migrations require a key
 ceremony between two operators who may be competitors.
 
