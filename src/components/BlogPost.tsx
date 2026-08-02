@@ -44,7 +44,7 @@ export function BlogPost({
     <main className="bg-white">
       <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <a
-          href="#blog"
+          href={localizeHref("/blog", language)}
           className="text-sm font-medium text-brand-600 transition-colors hover:text-brand-700 hover:underline"
         >
           ← {t.blog.backToList}
