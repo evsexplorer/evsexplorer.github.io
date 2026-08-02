@@ -36,14 +36,14 @@ umzukonfigurieren. Und in der Praxis ist der sauberste Weg, Ladedaten in einen
 Dienst der eigenen Wahl zu bekommen, weiterhin: das CSMS dieses Dienstes direkt
 mit der Box sprechen zu lassen, damit es das Laden auch steuern kann und nicht
 nur im Nachhinein mitliest. Womit wir bei dem Teil sind, den die Verordnung nicht
-beschreibt, nämlich was diese Migration technisch kostet.
+beschreibt, nämlich was diese Migration technisch bedeutet.
 
 ## Was eine CSMS-Migration wirklich ist
 
 In OCPP 2.x wird die Verbindung zu einem Backend über ein
 `NetworkConnectionProfile` beschrieben. Es enthält die CSMS-URL, den Transport,
 ein Message-Timeout, das Netzwerkinterface und, entscheidend, ein Feld
-`securityProfile`. Eine Ladestation hält mehrere davon in nummerierten
+`securityProfile`. Eine Ladestation hält mehrere Profile in nummerierten
 Konfigurations-Slots und probiert sie in der Reihenfolge, die
 `OCPPCommCtrlr.NetworkConfigurationPriority` vorgibt. Die Spezifikation verlangt
 mindestens zwei Slots (B09.FR.06), und zwar genau deshalb, damit eine Station
@@ -67,21 +67,24 @@ Und was er dort lokal eingeben muss, hängt vollständig vom Security Profile ab
 
 ## Die Security Profiles, die OCPP 2.x definiert
 
-Zuerst eine Korrektur, die für jede Migrations-Checkliste relevant ist: **OCPP
-2.x definiert drei Security Profiles, nämlich 1, 2 und 3.** Ein Profil 0 gibt es
-nicht. Der Wert 0 existiert in OCPP 1.6-J, dessen Konfigurationsschlüssel
-`SecurityProfile` einen ungesicherten Transport ohne Basic Authentication als
-Altlast zulässt. OCPP 2.0.1 stellt klar, dass der Betrieb ohne Security zwar
-möglich, aber keine gültige OCPP-2.0.1-Implementierung ist, und der Security
-Operations Guide der OCA wiederholt es: OCPP 2.x ohne Security Profile 2 (und
-optional 3) ist keine gültige OCPP-2.x-Implementierung. Die Zertifizierung für
-OCPP 2.x setzt Profil 2 voraus.
+Der [Artikel zum Protokoll-Stack](/blog/ocpp-protocol-stack) hat die drei Profile
+bereits von der Transportseite her eingeführt, einschließlich der Frage, warum
+das gelegentlich genannte Profil 0 eine Altlast aus OCPP 1.6-J ist und nichts,
+was OCPP 2.x definiert. Hier stehen sie noch einmal, diesmal mit der
+Migrationsfrage daneben, denn genau dort hören sie auf, ein Transportdetail zu
+sein, und werden zum Produktproblem:
 
 | Profil | Authentifizierung Ladestation | Authentifizierung CSMS | Kanal |
 | --- | --- | --- | --- |
 | 1 | HTTP Basic Authentication | keine | Klartext, kein TLS |
 | 2 | HTTP Basic Authentication | TLS-Serverzertifikat | TLS |
 | 3 | TLS-Clientzertifikat | TLS-Serverzertifikat | TLS |
+
+Der Security Operations Guide der OCA wird noch deutlicher als der Text der
+Spezifikation: OCPP 2.x ohne Security Profile 2 (und optional 3) ist keine
+gültige OCPP-2.x-Implementierung, und die Zertifizierung für OCPP 2.x setzt
+Profil 2 voraus. Für alles, was einem im Feld begegnet, ist Profil 2 oder 3 also
+der realistische Ausgangspunkt einer Migration.
 
 Für alle gelten zwei generische Regeln. Station und CSMS nutzen immer genau ein
 Profil, und jede Seite beendet die Verbindung, wenn die andere mit einem anderen

@@ -35,7 +35,7 @@ But a right to the data is not automatically a right to reconfigure the OCPP
 endpoint. And in practice, the cleanest way to get charging data into a service
 of your choice is still to let that service's CSMS talk to the box directly, so
 it can also steer the charging, not just read it afterwards. Which brings us to
-the part the regulation does not describe: what that migration costs
+the part the regulation does not describe: what that migration means
 technically.
 
 ## What a CSMS migration actually is
@@ -43,8 +43,8 @@ technically.
 In OCPP 2.x, the connection to a backend is described by a
 `NetworkConnectionProfile`. It carries the CSMS URL, the transport, a message
 timeout, the network interface and, importantly, a `securityProfile` field. A
-charging station holds several of these in numbered configuration slots and
-tries them in the order given by `OCPPCommCtrlr.NetworkConfigurationPriority`.
+charging station holds several of these profiles in numbered configuration slots
+and tries them in the order given by `OCPPCommCtrlr.NetworkConfigurationPriority`.
 The spec requires support for at least two slots (B09.FR.06), which exists
 precisely so that a station can be moved.
 
@@ -65,21 +65,23 @@ And what they need to provide locally depends entirely on the security profile.
 
 ## The security profiles OCPP 2.x defines
 
-First a correction that matters for any migration checklist: **OCPP 2.x defines
-three security profiles, 1, 2 and 3.** There is no profile 0. The value 0 exists
-in OCPP 1.6-J, whose `SecurityProfile` configuration key allows an unsecured
-transport without Basic Authentication as a legacy setting. OCPP 2.0.1 states
-plainly that running without security is possible but is not a valid OCPP 2.0.1
-implementation, and the OCA's Security Operations Guide repeats it: using OCPP
-2.x without implementing security profile 2 (and optionally 3) is not a valid
-OCPP 2.x implementation. Certification for OCPP 2.x requires support for
-profile 2.
+The [protocol stack article](/blog/ocpp-protocol-stack) already introduced the
+three profiles from the transport side, including why the profile 0 you
+occasionally hear about is an OCPP 1.6-J legacy setting and not something OCPP
+2.x defines. Here they are again, with the migration question attached, because
+that is where they stop being a transport detail and become a product problem:
 
 | Profile | Charging station auth | CSMS auth | Channel |
 | --- | --- | --- | --- |
 | 1 | HTTP Basic Authentication | none | plain, no TLS |
 | 2 | HTTP Basic Authentication | TLS server certificate | TLS |
 | 3 | TLS client certificate | TLS server certificate | TLS |
+
+The OCA's Security Operations Guide is even more direct than the spec text:
+using OCPP 2.x without implementing security profile 2 (and optionally 3) is not
+a valid OCPP 2.x implementation, and certification for OCPP 2.x requires support
+for profile 2. So for anything you meet in the field, profile 2 or 3 is the
+realistic starting point of a migration.
 
 Two generic rules apply to all of them. A station and a CSMS use exactly one
 profile at a time, and either side terminates the connection if the other tries

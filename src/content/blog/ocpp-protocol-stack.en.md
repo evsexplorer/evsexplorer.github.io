@@ -110,6 +110,11 @@ a VPN between station and CSMS), and for field operation a TLS profile is
 strongly recommended. Running OCPP 2.0.1 with no security at all (sometimes referred to
 as profil 0) is technically possible but is explicitly not a valid OCPP 2.0.1 implementation.
 
+Which profile a station runs is not only a transport question. It also decides
+how much work it takes to point that station at a different backend later, from
+three text fields to a certificate signing ceremony. That is the subject of
+[migrating a charge point to a new CSMS](/blog/csms-migration-security-profiles).
+
 ## Where this series goes next
 
 Knowing the stack, now it's time to understand [how the WebSocket connection is actually
