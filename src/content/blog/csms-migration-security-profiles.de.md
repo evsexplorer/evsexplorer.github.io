@@ -152,7 +152,10 @@ die vorgeschriebenen Cipher Suites einigen (A00.FR.313, A00.FR.318, A00.FR.319),
 sonst gibt es ein `InvalidTLSVersion` oder `InvalidTLSCipherSuite` Event und eine
 geschlossene Verbindung. Und die Uhr muss vor dem ersten TLS-Handshake stimmen,
 denn eine Station mit falschem Datum kann das Serverzertifikat gar nicht
-validieren. Die Spec weist darauf hin, und die OCA empfiehlt NTS und warnt, dass
+validieren. Die Spec weist darauf hin, und die OCA empfiehlt NTS (Network Time
+Security, RFC 8915, also NTP mit TLS-basierter Authentifizierung, damit niemand
+die Uhr so verstellen kann, dass ein abgelaufenes Zertifikat akzeptiert wird) und
+warnt, dass
 der OCPP-Heartbeat keine Zeitquelle sein kann, weil es ihn erst nach der
 Verbindung gibt, die man gerade aufbauen will.
 

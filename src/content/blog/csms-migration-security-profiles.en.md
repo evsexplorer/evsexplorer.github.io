@@ -146,7 +146,9 @@ suites (A00.FR.313, A00.FR.318, A00.FR.319), otherwise you get an
 `InvalidTLSVersion` or `InvalidTLSCipherSuite` event and a closed connection.
 And the clock has to be right before the first TLS handshake, because a station
 with a wrong date cannot validate the server certificate at all. The spec calls
-this out, and the OCA recommends NTS and warns that the OCPP Heartbeat cannot
+this out, and the OCA recommends NTS (Network Time Security, RFC 8915, which is
+NTP with TLS based authentication so nobody can spoof the clock into accepting
+an expired certificate) and warns that the OCPP Heartbeat cannot
 serve as the time source, since it only exists after the connection you are
 trying to establish.
 
