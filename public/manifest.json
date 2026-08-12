@@ -30,32 +30,6 @@
       "type": "image/png"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "OCPP Features",
-      "short_name": "Features",
-      "description": "View OCPP 2.0.1 testing features",
-      "url": "/#features",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Contact us",
-      "short_name": "Contact",
-      "description": "Contact us for more information",
-      "url": "/#contact",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ],
   "prefer_related_applications": false,
   "edge_side_panel": {
     "preferred_width": 400
