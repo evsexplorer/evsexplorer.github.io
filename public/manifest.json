@@ -11,22 +11,6 @@
   "lang": "en",
   "dir": "ltr",
   "categories": ["business", "productivity", "utilities"],
-  "screenshots": [
-    {
-      "src": "/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "EVSExplorer Desktop Dashboard"
-    },
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "360x640",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "EVSExplorer Mobile Interface"
-    }
-  ],
   "icons": [
     {
       "src": "/icon-192.png",
