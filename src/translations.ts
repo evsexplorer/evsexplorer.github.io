@@ -14,18 +14,18 @@ export const translations = {
     requestDemo: "Request a demo",
 
     // Hero
-    tagline: "OCPP 2.0.1 testing & monitoring for charging station teams",
+    tagline: "OCPP 2.0.1 test CSMS for charge point and wallbox developers",
     heroTitle: "See what your charge point is really saying",
     heroDescription:
-      "EVSExplorer is the OCPP 2.0.1 CSMS companion for developing and testing charging stations. Inspect every message, analyze connection stability, fire any request and automate all of it through a REST API.",
+      "EVSExplorer is an OCPP 2.0.1 test CSMS for charge point and wallbox development. Point a real station at it, inspect every message against the official schemas, analyze connection stability, fire any request and automate all of it through a REST API. Run it in our cloud or on your own hardware.",
     heroCtaPrimary: "Request a demo",
     heroCtaSecondary: "See it in action",
     heroHighlights: [
-      "OCPP 2.0.1 WebSocket server",
-      "Validated against the official JSON schemas",
-      "Comprehensive REST API for automation",
-      "AI-agent-ready (skill file included)",
-      "Runs on your own hardware",
+      "Cloud or self-hosted: your choice, same product",
+      "OCPP 2.0.1 WebSocket server for real charge points",
+      "Every message validated against the official JSON schemas",
+      "Full REST API for CI and scripted tests",
+      "AI agent ready (skill file included)",
     ],
     heroImageAlt:
       "EVSExplorer dashboard showing seven charge points with live connection and charging status",
@@ -239,7 +239,7 @@ export const translations = {
     },
 
     // Footer
-    footerClaim: "Professional OCPP 2.0.1 testing & monitoring",
+    footerClaim: "OCPP 2.0.1 test CSMS, cloud or self-hosted",
     copyright: "© 2026 EVSExplorer. All rights reserved.",
 
     // Impressum (legal notice)
@@ -352,18 +352,18 @@ export const translations = {
     },
     requestDemo: "Demo anfragen",
 
-    tagline: "OCPP-2.0.1-Testing & -Monitoring für Ladestations-Teams",
+    tagline: "OCPP-2.0.1-Testtool für Ladestations- und Wallbox-Entwickler",
     heroTitle: "Sehen Sie, was Ihre Ladestation wirklich sendet",
     heroDescription:
-      "EVSExplorer ist der OCPP-2.0.1-CSMS-Begleiter für Entwicklung und Test von Ladestationen. Untersuchen Sie jede Nachricht, analysieren Sie die Verbindungsstabilität, senden Sie beliebige Requests und automatisieren Sie alles über die REST-API.",
+      "EVSExplorer ist ein OCPP-2.0.1-Test-CSMS für die Entwicklung von Ladestationen und Wallboxen. Verbinden Sie eine echte Station, prüfen Sie jede Nachricht gegen die offiziellen Schemata, analysieren Sie die Verbindungsstabilität, senden Sie beliebige Requests und automatisieren Sie alles über die REST-API. In unserer Cloud oder auf Ihrer eigenen Hardware.",
     heroCtaPrimary: "Demo anfragen",
     heroCtaSecondary: "Produkt ansehen",
     heroHighlights: [
-      "OCPP-2.0.1-WebSocket-Server",
-      "Validierung gegen die offiziellen JSON-Schemata",
-      "Umfangreiche REST-API zur Automatisierung",
+      "Cloud oder eigene Hardware: Ihre Wahl, gleiches Produkt",
+      "OCPP-2.0.1-WebSocket-Server für echte Ladestationen",
+      "Jede Nachricht gegen die offiziellen JSON-Schemata validiert",
+      "Vollständige REST-API für CI und Testskripte",
       "Bereit für KI-Agenten (Skill-Datei inklusive)",
-      "Läuft auf Ihrer eigenen Hardware",
     ],
     heroImageAlt:
       "EVSExplorer-Dashboard mit sieben Ladepunkten samt Verbindungs- und Ladestatus",
@@ -571,7 +571,7 @@ export const translations = {
       translationNote: "Auch verfügbar auf",
     },
 
-    footerClaim: "Professionelles OCPP-2.0.1-Testing & -Monitoring",
+    footerClaim: "OCPP-2.0.1-Test-CSMS, Cloud oder eigene Hardware",
     copyright: "© 2026 EVSExplorer. Alle Rechte vorbehalten.",
 
     // Impressum

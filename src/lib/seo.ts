@@ -9,14 +9,18 @@ const AUTHOR = "The EVSExplorer team";
 const LANGS: Language[] = ["en", "de"];
 const OG_LOCALE: Record<Language, string> = { en: "en_US", de: "de_DE" };
 
+// Kept to the ~155 characters a search result actually shows, so this reads
+// shorter than the hero paragraph it mirrors.
 const homeDescription: Record<Language, string> = {
-  en: "EVSExplorer is an OCPP 2.0.1 CSMS companion for developing and testing charging stations. Inspect every message, analyze connection stability, fire any request, and automate it all through a REST API.",
-  de: "EVSExplorer ist der OCPP-2.0.1-CSMS-Begleiter für die Entwicklung und das Testen von Ladestationen. Jede Nachricht inspizieren, Verbindungsstabilität analysieren, jeden Request absetzen und alles über eine REST-API automatisieren.",
+  en: "An OCPP 2.0.1 test CSMS for charge point and wallbox developers. Point a real station at it, inspect every message, automate via REST API. Cloud or self-hosted.",
+  de: "OCPP-2.0.1-Test-CSMS für Ladestations- und Wallbox-Entwickler. Echte Station verbinden, jede Nachricht prüfen, alles per REST-API. Cloud oder eigene Hardware.",
 };
 
+// Keyword first, brand last: the product category is what gets searched for,
+// the brand name is not (yet). Article titles keep the opposite order.
 const homeTitle: Record<Language, string> = {
-  en: "EVSExplorer - OCPP 2.0.1 Testing & Monitoring for Charging Stations",
-  de: "EVSExplorer - OCPP 2.0.1 Testen & Überwachen von Ladestationen",
+  en: "OCPP 2.0.1 Test CSMS for Charge Point Developers | EVSExplorer",
+  de: "OCPP-2.0.1-Testtool für Ladestationen und Wallboxen | EVSExplorer",
 };
 
 const impressumDescription: Record<Language, string> = {
@@ -28,9 +32,6 @@ const datenschutzDescription: Record<Language, string> = {
   en: "Privacy policy for EVSExplorer: how personal data is processed on this website. No cookies, no tracking, no analytics.",
   de: "Datenschutzerklärung von EVSExplorer: wie personenbezogene Daten auf dieser Website verarbeitet werden. Keine Cookies, kein Tracking, keine Analyse.",
 };
-
-const HOME_KEYWORDS =
-  "OCPP, OCPP 2.0.1, ocpp compliance testing, automated charge point testing, EVSE monitoring, charge point monitoring, WebSocket server, EV charging infrastructure, OCPP protocol testing";
 
 export interface PageMeta {
   title: string;
@@ -134,7 +135,6 @@ export function headTags(route: Route, lang: Language): string {
   lines.push(
     `<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />`,
   );
-  if (route.name === "home") lines.push(`<meta name="keywords" content="${esc(HOME_KEYWORDS)}" />`);
   if (isPost && meta.post!.tags.length)
     lines.push(`<meta name="keywords" content="${esc(["OCPP 2.0.1", ...meta.post!.tags].join(", "))}" />`);
 
