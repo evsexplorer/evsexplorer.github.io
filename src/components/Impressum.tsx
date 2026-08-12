@@ -14,8 +14,8 @@ export const provider = {
   email: "hello@evsexplorer.com",
   phone: "+49 179 537 1932", // e.g. "+49 30 1234567"
   vatId: "", // USt-IdNr., e.g. "DE123456789"
-  registerCourt: "", // e.g. "Amtsgericht Berlin (Charlottenburg)" — companies only
-  registerNumber: "", // e.g. "HRB 123456" — companies only
+  registerCourt: "", // e.g. "Amtsgericht Berlin (Charlottenburg)", companies only
+  registerNumber: "", // e.g. "HRB 123456", companies only
   responsible: "", // person responsible for content; defaults to the name above
 };
 

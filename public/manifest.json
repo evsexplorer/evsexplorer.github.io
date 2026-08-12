@@ -11,22 +11,6 @@
   "lang": "en",
   "dir": "ltr",
   "categories": ["business", "productivity", "utilities"],
-  "screenshots": [
-    {
-      "src": "/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "EVSExplorer Desktop Dashboard"
-    },
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "360x640",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "EVSExplorer Mobile Interface"
-    }
-  ],
   "icons": [
     {
       "src": "/icon-192.png",
@@ -44,32 +28,6 @@
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "OCPP Features",
-      "short_name": "Features",
-      "description": "View OCPP 2.0.1 testing features",
-      "url": "/#features",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Contact us",
-      "short_name": "Contact",
-      "description": "Contact us for more information",
-      "url": "/#contact",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
     }
   ],
   "prefer_related_applications": false,

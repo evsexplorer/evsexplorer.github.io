@@ -11,5 +11,5 @@ export function render(pathname: string): { appHtml: string } {
 
 // Re-exported so the prerender script (which imports this SSR bundle) can reach
 // the content-loader-backed helpers without touching import.meta.glob itself.
-export { allRoutes, headTags, pageMeta, SITE } from "./lib/seo";
+export { allRoutes, headTags, fallbackHeadTags, pageMeta, SITE } from "./lib/seo";
 export { buildPath } from "./lib/router";

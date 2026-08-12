@@ -36,7 +36,12 @@ export function parsePath(pathname: string): { lang: Language; route: Route } {
   return { lang, route };
 }
 
-/** Canonical pathname for a route in a given language. */
+/**
+ * Canonical pathname for a route in a given language. Always trailing-slashed:
+ * GitHub Pages 301-redirects a bare directory path (e.g. `/blog/x`) to its
+ * trailing-slash form, so a canonical/sitemap URL without the slash sends
+ * crawlers through an extra redirect hop back to itself.
+ */
 export function buildPath(route: Route, lang: Language): string {
   let path: string;
   switch (route.name) {
@@ -44,16 +49,16 @@ export function buildPath(route: Route, lang: Language): string {
       path = "/";
       break;
     case "impressum":
-      path = "/impressum";
+      path = "/impressum/";
       break;
     case "datenschutz":
-      path = "/datenschutz";
+      path = "/datenschutz/";
       break;
     case "blog":
-      path = "/blog";
+      path = "/blog/";
       break;
     case "post":
-      path = `/blog/${encodeURIComponent(route.slug)}`;
+      path = `/blog/${encodeURIComponent(route.slug)}/`;
       break;
   }
   if (lang === "de") return path === "/" ? "/de/" : `/de${path}`;
@@ -61,14 +66,28 @@ export function buildPath(route: Route, lang: Language): string {
 }
 
 /**
- * Prefix a language-neutral in-app link (e.g. `/blog/x`, `/`, `/#product`) with
- * `/de` when in German. Pure-hash and external links pass through unchanged.
+ * Resolve a language-neutral in-app link (e.g. `/blog/x`, `/`, `/#product`) to
+ * its trailing-slashed, `/de`-prefixed (when German) form. Pure-hash and
+ * external links pass through unchanged.
+ *
+ * A query string or hash is split off first, so the slash lands on the path and
+ * not after `?page=2`. Links to static files (`/og-image.png`) are left alone
+ * entirely: they have neither a trailing-slash form nor a `/de` variant.
  */
 export function localizeHref(path: string, lang: Language): string {
-  if (lang !== "de" || !path.startsWith("/")) return path;
-  const hashIdx = path.indexOf("#");
-  const hash = hashIdx >= 0 ? path.slice(hashIdx) : "";
-  const pure = hashIdx >= 0 ? path.slice(0, hashIdx) : path;
-  const base = pure === "" || pure === "/" ? "/de/" : `/de${pure}`;
-  return base + hash;
+  if (!path.startsWith("/")) return path;
+  const sepIdx = path.search(/[?#]/);
+  const suffix = sepIdx >= 0 ? path.slice(sepIdx) : "";
+  let pure = sepIdx >= 0 ? path.slice(0, sepIdx) : path;
+  if (pure === "") pure = "/";
+
+  // A last segment ending in a short alphabetic extension is a file, not a
+  // route. Digits are excluded on purpose so version-ish slugs (`/blog/ocpp-2.0.1`)
+  // stay routes.
+  const lastSegment = pure.slice(pure.lastIndexOf("/") + 1);
+  if (/\.[a-z]{2,4}$/i.test(lastSegment)) return path;
+
+  if (!pure.endsWith("/")) pure += "/";
+  if (lang === "de") pure = pure === "/" ? "/de/" : `/de${pure}`;
+  return pure + suffix;
 }

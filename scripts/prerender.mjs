@@ -8,7 +8,8 @@ import { pathToFileURL } from "node:url";
 
 const BUILD = "build";
 const ssrEntry = pathToFileURL(join(process.cwd(), "dist-ssr", "entry-server.js")).href;
-const { render, allRoutes, headTags, buildPath, pageMeta, SITE } = await import(ssrEntry);
+const { render, allRoutes, headTags, fallbackHeadTags, buildPath, pageMeta, SITE } =
+  await import(ssrEntry);
 
 const shell = await readFile(join(BUILD, "index.html"), "utf8");
 
@@ -36,7 +37,9 @@ for (const { route, lang } of routes) {
 }
 
 // 404 fallback: empty app shell that client-routes any non-prerendered path.
-await writeFile(join(BUILD, "404.html"), compose("en", headTags({ name: "home" }, "en"), ""), "utf8");
+// Its head is noindex and carries no canonical (see fallbackHeadTags), because
+// GitHub Pages serves this same file at /404.html with a 200.
+await writeFile(join(BUILD, "404.html"), compose("en", fallbackHeadTags("en"), ""), "utf8");
 
 // Sitemap covering every page in both languages with hreflang alternates.
 const today = new Date().toISOString().slice(0, 10);

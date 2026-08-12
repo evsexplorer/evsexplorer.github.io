@@ -171,6 +171,21 @@ export function headTags(route: Route, lang: Language): string {
   return lines.join("\n    ");
 }
 
+/**
+ * The <head> for the 404.html SPA fallback. GitHub Pages serves that file both
+ * as the body of a real 404 response and (with status 200) at /404.html itself,
+ * so it must be noindex: what it ships is an empty shell that only fills in once
+ * the client router runs. No canonical or hreflang either, since the one file
+ * stands in for every non-prerendered path.
+ */
+export function fallbackHeadTags(lang: Language = "en"): string {
+  const t = translations[lang];
+  return [
+    `<title>${esc(t.blog.notFoundTitle)} - EVSExplorer</title>`,
+    `<meta name="robots" content="noindex, follow" />`,
+  ].join("\n    ");
+}
+
 function structuredData(route: Route, lang: Language, meta: PageMeta): string[] {
   const t = translations[lang];
   if (route.name === "post" && meta.post) {
