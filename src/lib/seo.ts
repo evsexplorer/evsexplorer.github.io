@@ -219,6 +219,36 @@ function structuredData(route: Route, lang: Language, meta: PageMeta): string[] 
     };
     return [jsonLd(article), jsonLd(crumbs)];
   }
+  if (route.name === "blog") {
+    // The article hub: an ItemList of the posts (newest first) so the index is
+    // read as a collection pointing at the detail pages, not a wall of links.
+    const posts = listPosts(lang);
+    const list = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: t.blog.title,
+      description: t.blog.subtitle,
+      inLanguage: lang,
+      url: absUrl(route, lang),
+      numberOfItems: posts.length,
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
+      itemListElement: posts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: post.title,
+        url: absUrl({ name: "post", slug: post.slug }, lang),
+      })),
+    };
+    const crumbs = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "EVSExplorer", item: absUrl({ name: "home" }, lang) },
+        { "@type": "ListItem", position: 2, name: t.blog.title, item: absUrl(route, lang) },
+      ],
+    };
+    return [jsonLd(list), jsonLd(crumbs)];
+  }
   if (route.name === "home") {
     const app = {
       "@context": "https://schema.org",
@@ -231,13 +261,8 @@ function structuredData(route: Route, lang: Language, meta: PageMeta): string[] 
       url: absUrl({ name: "home" }, lang),
       inLanguage: lang,
       author: { "@type": "Organization", name: AUTHOR },
-      offers: {
-        "@type": "Offer",
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "USD",
-        description: "Contact us for pricing",
-      },
+      // No `offers`: pricing is "talk to us", and a price of 0 would have
+      // search engines annotate a commercial product as free.
       screenshot: OG_IMAGE,
     };
     const org = {
