@@ -375,7 +375,7 @@ export const translations = {
       {
         title: "Entwickler",
         description:
-          "Jede Nachricht live verfolgen, während Sie entwickeln. Beobachten Sie den OCPP-J-Verkehr Ihrer Station in Echtzeit, prüfen Sie schema-validierte Payloads und beantworten Sie „Was haben wir eigentlich gesendet?“ in Sekunden, ohne serielle Logs zu durchsuchen.",
+          "Jede Nachricht live verfolgen, während Sie entwickeln. Beobachten Sie die OCPP-J-Nachrichten Ihrer Station in Echtzeit, prüfen Sie schema-validierte Payloads und beantworten Sie „Was haben wir eigentlich gesendet?“ in Sekunden, ohne serielle Logs zu durchsuchen.",
       },
       {
         title: "Tester",
@@ -397,7 +397,7 @@ export const translations = {
         kicker: "Nachrichten-Log",
         title: "Jede OCPP-Nachricht, validiert und durchsuchbar",
         description:
-          "Roher OCPP-J-Verkehr in beide Richtungen, geprüft gegen die offiziellen OCPP-2.0.1-JSON-Schemata. Filtern Sie nach Aktion, Richtung oder Payload-Inhalt, blenden Sie Heartbeats aus und öffnen Sie jede Nachricht, um zu sehen, was tatsächlich übertragen wurde.",
+          "Rohe OCPP-J-Nachrichten in beide Richtungen, geprüft gegen die offiziellen OCPP-2.0.1-JSON-Schemata. Filtern Sie nach Aktion, Richtung oder Payload-Inhalt, blenden Sie Heartbeats aus und öffnen Sie jede Nachricht, um zu sehen, was tatsächlich übertragen wurde.",
         bullets: [
           "Request-/Response-/Error-Zuordnung mit Anomalie-Erkennung (verspätete, doppelte und unzuordenbare Antworten werden markiert)",
           "Volltextsuche in Payloads",
@@ -485,7 +485,7 @@ export const translations = {
       {
         title: "Security-Ereignisse",
         description:
-          "Sicherheitsmeldungen und zertifikatsbezogener Verkehr jeder Ladestation an einem Ort.",
+          "Sicherheitsmeldungen und zertifikatsbezogene Ereignisse jeder Ladestation an einem Ort.",
       },
       {
         title: "Device-Model-Browser",
@@ -500,7 +500,7 @@ export const translations = {
       {
         title: "Nachrichten-Historie",
         description:
-          "Durchsuchen und filtern Sie den gesamten OCPP-Verkehr in rollierenden oder historischen Zeitfenstern.",
+          "Durchsuchen und filtern Sie sämtliche OCPP-Nachrichten in rollierenden oder historischen Zeitfenstern.",
       },
       {
         title: "REST-API",
@@ -518,7 +518,7 @@ export const translations = {
       "Automatische Antworten und Verbindungsblockaden zur Laufzeit konfigurieren",
     ],
     apiFootnote:
-      "Läuft auch auf Ihrer eigenen Hardware (ein Raspberry Pi genügt). Ihr OCPP-Verkehr verlässt das Labor nicht.",
+      "Läuft auch auf Ihrer eigenen Hardware (ein Raspberry Pi genügt). Ihre OCPP-Nachrichten verlassen niemals Ihr Labor.",
 
     aiKicker: "Bereit für KI",
     aiTitle: "Lassen Sie Ihren KI-Agenten den Prüfstand bedienen",

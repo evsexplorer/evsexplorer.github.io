@@ -37,11 +37,14 @@ export function Hero({ t }: { t: Translation }) {
             </a>
           </div>
 
-          <ul className="mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-navy-600">
+          {/* A centered block of left-aligned rows, not a wrapping chip row: the
+              highlights are long enough that two rarely fit on one line, and a
+              centered wrap gives every line its own left edge (staggered ticks). */}
+          <ul className="mx-auto mt-8 flex w-fit max-w-full flex-col gap-y-2 text-left text-sm text-navy-600">
             {t.heroHighlights.map((item) => (
-              <li key={item} className="flex items-center gap-1.5">
-                <Check className="size-4 text-lime-500" aria-hidden />
-                {item}
+              <li key={item} className="flex items-start gap-1.5">
+                <Check className="mt-0.5 size-4 shrink-0 text-lime-500" aria-hidden />
+                <span>{item}</span>
               </li>
             ))}
           </ul>
