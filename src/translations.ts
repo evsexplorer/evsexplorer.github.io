@@ -23,7 +23,7 @@ export const translations = {
     heroHighlights: [
       "OCPP 2.0.1 WebSocket server",
       "Validated against the official JSON schemas",
-      "Full REST API for automation",
+      "Comprehensive REST API for automation",
       "AI-agent-ready (skill file included)",
       "Runs on your own hardware",
     ],
@@ -76,7 +76,7 @@ export const translations = {
           "Sessions, offline gaps and rejected attempts are derived from raw WebSocket connect and disconnect events, including who closed the connection and why.",
         bullets: [
           "Uptime, connect/disconnect counts and longest offline gap per time window",
-          "Close codes and originator: did the station drop, or did the CSMS?",
+          "Close codes and originator: did the station close the socket, or did the CSMS?",
           "Session timeline down to the second",
         ],
         alt: "Connection stability view with uptime statistics and a timeline of sessions and offline gaps",
@@ -193,12 +193,12 @@ export const translations = {
       "The REST API is designed for efficient use by LLM-based agents, and EVSExplorer ships with a skill file that teaches your AI assistant the domain model, the interaction patterns and the common workflows, so it can operate the bench for you.",
     aiBullets: [
       "Self-teaching: the instance serves its skill file at /api/skill.md. Point Claude Code or any agentic tool at it and the agent learns the domain model and workflows on the spot",
-      "Token-efficient by design: server-side limits, time-range filters, action exclusion and sparse field selection keep responses small enough for an LLM context window",
+      "Token-efficient by design: server-side limits, time-range filters, action exclusion and sparse field selection keep responses small enough for models with a limited context window",
       "Machine-readable error codes and an asynchronous command pattern that agents can poll deterministically",
       "The OpenAPI spec is served by the instance too, so agents can discover every endpoint at runtime",
     ],
     aiTranscriptCaption:
-      "From a real agent session (Claude CLI) against a bench instance, recreated with the demo identities.",
+      "From a real agent session (Claude CLI) against a bench instance.",
 
     // Contact
     contactTitle: "Put EVSExplorer on your bench",
@@ -361,7 +361,7 @@ export const translations = {
     heroHighlights: [
       "OCPP-2.0.1-WebSocket-Server",
       "Validierung gegen die offiziellen JSON-Schemata",
-      "Vollständige REST-API zur Automatisierung",
+      "Umfangreiche REST-API zur Automatisierung",
       "Bereit für KI-Agenten (Skill-Datei inklusive)",
       "Läuft auf Ihrer eigenen Hardware",
     ],
@@ -412,7 +412,7 @@ export const translations = {
           "Sitzungen, Offline-Lücken und abgewiesene Verbindungsversuche werden aus den rohen WebSocket-Ereignissen abgeleitet, inklusive der Frage, wer die Verbindung beendet hat und warum.",
         bullets: [
           "Uptime, Verbindungszähler und längste Offline-Lücke je Zeitfenster",
-          "Close-Codes und Verursacher: Hat die Station getrennt oder das CSMS?",
+          "Close-Codes und Verursacher: Hat die Station den Socket geschlossen oder das CSMS?",
           "Sitzungsverlauf sekundengenau",
         ],
         alt: "Verbindungsstabilität mit Uptime-Statistik und Zeitleiste aus Sitzungen und Offline-Lücken",
@@ -431,7 +431,7 @@ export const translations = {
       },
       {
         kicker: "Kommando-Konsole",
-        title: "Senden Sie jeden Request, auch absichtlich kaputte",
+        title: "Senden Sie jeden Request, auch absichtlich nicht OCPP-konforme",
         description:
           "Senden Sie jede CSMS-initiierte OCPP-2.0.1-Aktion mit editierbarer Payload-Vorlage. Schema-Verletzungen sind ausdrücklich erlaubt: Negativtests sind ein Feature, kein Fehler.",
         bullets: [
@@ -445,7 +445,7 @@ export const translations = {
 
     featuresTitle: "Alles, was Sie für OCPP 2.0.1 brauchen",
     featuresSubtitle:
-      "Keine Mock-Daten, keine Magie. Jede Funktion arbeitet auf dem echten Verkehr Ihrer Ladestationen.",
+      "Keine Mock-Daten, keine Magie. Jede Funktion arbeitet auf Basis der echten Nachrichten Ihrer Ladestationen.",
     features: [
       {
         title: "OCPP-2.0.1-CSMS",
@@ -475,7 +475,7 @@ export const translations = {
       {
         title: "WebSocket-Kontrolle",
         description:
-          "Trennen Sie die Verbindung einer Station oder blockieren Sie Reconnects für definierte Zeiträume, um Offline-Verhalten zu testen.",
+          "Trennen Sie die Verbindung einer Station oder blockieren Sie Reconnects für definierte Zeiträume, um das Offline-Verhalten Ihrer Ladestation zu testen.",
       },
       {
         title: "Ladevorgänge & Messwerte",
@@ -526,12 +526,12 @@ export const translations = {
       "Die REST-API ist auf die effiziente Nutzung durch LLM-basierte Agenten ausgelegt, und EVSExplorer liefert eine Skill-Datei mit, die Ihrem KI-Assistenten das Domänenmodell, die Interaktionsmuster und die typischen Arbeitsabläufe beibringt, damit er den Prüfstand für Sie bedient.",
     aiBullets: [
       "Selbsterklärend: die Instanz liefert ihre Skill-Datei unter /api/skill.md aus. Verweisen Sie Claude Code oder ein anderes agentisches Tool darauf und der Agent lernt Domänenmodell und Workflows an Ort und Stelle",
-      "Token-effizient von Haus aus: serverseitige Limits, Zeitfilter, Aktions-Ausschluss und schlanke Feldauswahl halten Antworten klein genug für ein LLM-Kontextfenster",
+      "Token-effizient von Haus aus: serverseitige Limits, Zeitfilter, Aktions-Ausschluss und schlanke Feldauswahl halten Antworten klein genug für Modelle mit begrenztem LLM-Kontextfenster",
       "Maschinenlesbare Fehlercodes und ein asynchrones Kommando-Muster, das Agenten deterministisch abfragen können",
       "Auch die OpenAPI-Spezifikation wird von der Instanz ausgeliefert, sodass Agenten jeden Endpunkt zur Laufzeit entdecken können",
     ],
     aiTranscriptCaption:
-      "Aus einer echten Agenten-Session (Claude CLI) gegen eine Prüfstand-Instanz, nachgestellt mit den Demo-Identitäten.",
+      "Aus einer echten Agenten-Session (Claude CLI) gegen eine Prüfstand-Instanz.",
 
     contactTitle: "Holen Sie EVSExplorer auf Ihren Prüfstand",
     contactSubtitle:
