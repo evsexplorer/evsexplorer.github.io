@@ -150,6 +150,54 @@ Beim Wiederverbinden sollte die Station **keine** neue [BootNotification](/blog/
 senden, sofern sich darin nichts geändert hat. Das CSMS hat die Ladestation ja bereits
 im Moment des Verbindungsaufbaus dem WebSocket zugeordnet.
 
+## Das Ganze auf dem eigenen Prüfstand beobachten
+
+Alles bisher Beschriebene lässt sich von der CSMS-Seite aus beobachten, aber nur,
+wenn das CSMS die rohen Verbindungsereignisse aufzeichnet und nicht bloß die
+OCPP-Nachrichten, die danach folgen. Zwei Dinge aus diesem Artikel sind von Hand
+schwer zu prüfen.
+
+**Wurde der Versuch abgewiesen, und warum?** Ein `101` ohne vereinbartes
+Subprotokoll sieht in den meisten Logs wie eine erfolgreiche Verbindung aus, und
+eine Station, die drei Sekunden nach dem Verbinden verschwindet, sieht aus wie
+eine, die nie angekommen ist. Was Sie brauchen, ist die Abweisung als eigenes
+Ereignis, mit dem zugehörigen Grund.
+
+**Steigt die Back-off-Zeit wirklich an?** `RetryBackOffWaitMinimum`, die
+Verdopplung und der Zufallsbereich sind einfach falsch zu implementieren und
+mit bloßem Auge kaum zu prüfen. Das zu testen bedeutet, die Station während ihrer
+Versuche abzuweisen und dann die Abstände zwischen den Versuchen zu messen.
+
+[EVSExplorer](/) zeichnet jeden Verbindungsaufbau, jede Trennung und jede Abweisung als
+[eigenes Verbindungsereignis](/#connection-stability) auf, mit dem Grund
+(`unsupported_subprotocol`, `missing_auth`, `invalid_auth`,
+`invalid_client_cert`, `profile_mismatch`), der verursachenden Seite, dem
+ausgehandelten Security-Profil und sogar dem `Sec-WebSocket-Key` aus dem
+Handshake weiter oben, sodass sich eine Sitzung mit den Logs der Station selbst
+korrelieren lässt. Gelingt der Handshake, landet das ausgehandelte Sub-Protokoll
+auf der [Dashboard-Kachel](/#feature-live-dashboard) der Station, sodass Sie
+prüfen können, welche OCPP-Version tatsächlich verwendet wird.
+
+Eine blockierte Station [wird getrennt und anschließend abgewiesen](/#feature-websocket-control),
+und genau das ist der Back-off-Test:
+
+```bash
+# Aktuelle Sitzung schließen und jeden folgenden Versuch abweisen
+curl -s -X POST $BASE/api/charge-points/CS001/block
+
+# ...einige Minuten weiter versuchen lassen, dann die Versuche auslesen, neueste zuerst
+curl -s "$BASE/api/charge-points/CS001/connection-events?limit=20" \
+  | jq '.[] | {recordedAt, event, reason, originator, securityProfile}'
+
+curl -s -X POST $BASE/api/charge-points/CS001/unblock
+```
+
+Jeder Wiederholungsversuch erscheint als `rejected`-Ereignis mit dem Grund
+`blocked`. Die Abstände zwischen den `recordedAt`-Zeitstempeln zeigen damit genau
+die Back-off-Kurve, die die Station tatsächlich implementiert. Prüfen Sie diese
+Abstände automatisiert, um einen Test zu etablieren, der fehlschlägt, sobald jemand
+die Retry-Logik ändert.
+
 ## Wie es in dieser Reihe weitergeht
 
 Mit offener oder authentifizierter WebSocket-Verbindung ist die Station nun bereit,

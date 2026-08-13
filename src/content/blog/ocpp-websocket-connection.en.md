@@ -144,6 +144,51 @@ station should **not** resend a
 actually changed, because the CSMS already matched the identity to the channel
 the moment the connection was established.
 
+## Watching this on your own bench
+
+Everything above is observable from the CSMS side, but only if the CSMS keeps
+the raw connection events and not just the OCPP messages that follow them. Two
+things from this article are awkward to verify by hand.
+
+**Was the attempt refused, and why?** A `101` with no agreed subprotocol looks
+like a successful connection in most logs, and a station that vanishes three
+seconds after connecting looks much like one that never arrived. What you want
+is the refusal recorded as its own event, with a reason on it.
+
+**Does the back-off actually back off?** `RetryBackOffWaitMinimum`, the doubling
+and the random range are easy to implement slightly wrong and nearly impossible
+to eyeball. Checking it means refusing the station while it retries, then
+measuring the gaps between its attempts.
+
+[EVSExplorer](/) records every connect, disconnect and refusal as a
+[connection event you can read back](/#connection-stability), carrying the reason
+(`unsupported_subprotocol`, `missing_auth`, `invalid_auth`,
+`invalid_client_cert`, `profile_mismatch`), which end caused it, the security
+profile the session negotiated, and even the `Sec-WebSocket-Key` from the
+handshake above, so a session can be correlated against the station's own logs.
+When the handshake does succeed, the negotiated sub-protocol ends up on the
+station's [dashboard card](/#feature-live-dashboard), so you can check which
+OCPP version it actually uses.
+
+Blocking a station [closes its socket and refuses what follows](/#feature-websocket-control),
+which is the back-off test:
+
+```bash
+# Close the current session and refuse every attempt that follows
+curl -s -X POST $BASE/api/charge-points/CS001/block
+
+# ...let it retry for a few minutes, then read the attempts back, newest first
+curl -s "$BASE/api/charge-points/CS001/connection-events?limit=20" \
+  | jq '.[] | {recordedAt, event, reason, originator, securityProfile}'
+
+curl -s -X POST $BASE/api/charge-points/CS001/unblock
+```
+
+Each retry comes back as a `rejected` event with reason `blocked`, so the gaps
+between their `recordedAt` timestamps show the back-off curve the station really
+implements. Assert on those and you have a test that fails the day someone changes
+the retry logic.
+
 ## Where this series goes next
 
 With the socket open and authenticated, the station is finally ready to speak
