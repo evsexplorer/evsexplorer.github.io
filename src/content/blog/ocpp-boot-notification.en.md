@@ -96,3 +96,46 @@ that does not match the label, a serial number that changes across reboots, a
 firmware string that never updates after a flash, a clock that never gets set.
 All of it shows up here, before a single transaction has run. Watch this
 message to identify incorrect charge point behavior early.
+
+## Watching it in practice
+
+By hand you only ever see the boot in front of you. What matters is the pattern
+across many boots, and whether the station really obeys the response you sent
+it.
+
+The second one is worth a closer look. `interval` means three different things
+depending on `status`, so it is exactly the kind of branch that should not ship
+untested. And `currentTime` has to be adopted by the station (B01.FR.06). You
+check both with a response you define yourself and a look at what the station
+does next.
+
+In [EVSExplorer](/) you define that response yourself, through
+[canned answers per action](/#feature-auto-responses) (with `autoResponseMode`
+set to `defined` or `all`):
+
+```bash
+# Reject the next boot and tell the station to wait ten minutes
+curl -s -X PUT $BASE/api/charge-points/CS001/auto-responses/BootNotification \
+  -H 'Content-Type: application/json' \
+  -d '{"status": "Rejected", "currentTime": "%UTC_TIMESTAMP%", "interval": 600}'
+
+# Watch what it does next, heartbeat noise filtered out
+curl -s "$BASE/api/charge-points/CS001/message-logs?exclude_actions=Heartbeat&limit=20"
+```
+
+A station that reconnects immediately instead of waiting out those 600 seconds
+can overload a CSMS that is trying to shed load. `%UTC_TIMESTAMP%` is filled in
+at send time. Put a fixed date there instead, then check whether the station
+adopted the new time.
+
+Vendor, model, serial number and firmware version are lifted out of the
+BootNotification onto the station's own record, so
+[the dashboard card](/#feature-live-dashboard) shows what is on the bench and
+which OCPP version it is using.
+
+The firmware version is worth a second look, because every logged frame records
+the version the station was running when it sent that frame.
+[The message history](/#message-log) will therefore answer questions no single
+boot can: did the firmware string ever change after we flashed it, is this
+malformed value genuinely gone in the new build or just rarer, and what does the
+firmware history of this station actually look like?

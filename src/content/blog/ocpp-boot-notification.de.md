@@ -102,3 +102,47 @@ sich über Reboots hinweg ändert, ein Firmware-String, der nach dem Flashen nie
 aktualisiert wird, eine Uhr, die nie gestellt wird. All das taucht hier auf,
 bevor eine einzige Transaktion gelaufen ist. Achten Sie also auf diese Nachricht,
 um inkorrektes Verhalten der Ladestation frühzeitig zu erkennen.
+
+## Wie Sie das in der Praxis beobachten
+
+Von Hand sehen Sie immer nur den Boot-Vorgang, der gerade vor Ihnen liegt.
+Interessant sind aber das Muster über viele Boot-Vorgänge hinweg und die Frage,
+ob die Station der Response, die Sie ihr geschickt haben, tatsächlich folgt.
+
+Beim zweiten Punkt lohnt es sich, genauer hinzusehen. `interval` bedeutet je
+nach `status` drei verschiedene Dinge, also genau die Art von Verzweigung, die
+nicht ungetestet ausgeliefert werden soll. Auch `currentTime` muss von der Station
+übernommen werden (B01.FR.06). Beides prüfen Sie mit einer selbst definierten Antwort
+und einem Blick darauf, was die Station danach tut.
+
+In [EVSExplorer](/) definieren Sie diese Antwort selbst, über
+[vorbereitete Antworten je Aktion](/#feature-auto-responses) (mit
+`autoResponseMode` auf `defined` oder `all`):
+
+```bash
+# Den nächsten Boot ablehnen und die Station zehn Minuten warten lassen
+curl -s -X PUT $BASE/api/charge-points/CS001/auto-responses/BootNotification \
+  -H 'Content-Type: application/json' \
+  -d '{"status": "Rejected", "currentTime": "%UTC_TIMESTAMP%", "interval": 600}'
+
+# Beobachten, was danach passiert, ohne Heartbeat-Rauschen
+curl -s "$BASE/api/charge-points/CS001/message-logs?exclude_actions=Heartbeat&limit=20"
+```
+
+Eine Station, die sich sofort erneut verbindet, statt die 600 Sekunden abzuwarten,
+überlastet ggf. ein CSMS, das gerade Last abbauen will. `%UTC_TIMESTAMP%` wird
+beim Senden eingesetzt. Tragen Sie dort stattdessen ein festes Datum ein, und prüfen
+Sie, ob die Station die neue Zeit übernommen hat.
+
+Hersteller, Modell, Seriennummer und Firmware-Version wandern aus der
+BootNotification in den Datensatz der Station, sodass
+[die Dashboard-Kachel](/#feature-live-dashboard) zeigt, was auf dem Prüfstand
+steht und welche OCPP-Version es verwendet.
+
+Die Firmware-Version verdient dabei einen zweiten Blick, denn jede protokollierte
+Nachricht hält fest, welche Version die Station beim Senden ausgeführt hat.
+[Die Nachrichten-Historie](/#message-log) beantwortet damit Fragen, die ein
+einzelner Boot-Vorgang nicht beantworten kann: Hat sich der Firmware-String nach
+dem Flashen je geändert, ist dieser fehlerhafte Wert im neuen Build wirklich weg
+oder nur seltener geworden, und wie sieht die Firmware-Historie dieser Station
+eigentlich aus?
