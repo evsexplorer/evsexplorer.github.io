@@ -1,6 +1,7 @@
 ---
 title: "Die OCPP-2.0.1-BootNotification"
 date: 2026-05-24
+updated: 2026-08-13
 description: "Die allererste Nachricht einer Ladestation nach dem Verbinden: der Boot-Grund, die Hardware, die sie verrät, und die Zeitsynchronisation, die in der Response steckt."
 tags: [ocpp, boot, websocket]
 ---

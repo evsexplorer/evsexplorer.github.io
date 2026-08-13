@@ -1,6 +1,7 @@
 ---
 title: "Wie eine Ladestation ihre OCPP-J-WebSocket-Verbindung aufbaut"
 date: 2026-05-17
+updated: 2026-08-13
 description: "Die Connection-URL, das HTTP-Upgrade und die Subprotokoll-Aushandlung, HTTP Basic Auth und TLS über die drei Security Profiles, und wie die Verbindung am Leben gehalten und wieder aufgebaut wird."
 tags: [ocpp, websocket, transport]
 ---

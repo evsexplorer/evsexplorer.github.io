@@ -231,6 +231,8 @@ export const translations = {
       title: "Technical articles",
       subtitle: "Deep dives on OCPP 2.0.1 (messages, transport and the bench).",
       readArticle: "Read article",
+      updatedLabel: "Updated",
+      publishedLabel: "Published",
       backToList: "All articles",
       empty: "No articles yet, check back soon.",
       notFoundTitle: "Article not found",
@@ -564,6 +566,8 @@ export const translations = {
       subtitle:
         "Tiefgehende Einblicke in OCPP 2.0.1 (Nachrichten, Transport und Prüfstand).",
       readArticle: "Artikel lesen",
+      updatedLabel: "Aktualisiert",
+      publishedLabel: "Veröffentlicht",
       backToList: "Alle Artikel",
       empty: "Noch keine Artikel, schauen Sie bald wieder vorbei.",
       notFoundTitle: "Artikel nicht gefunden",

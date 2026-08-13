@@ -4,6 +4,12 @@ export interface PostMeta {
   slug: string;
   /** ISO date (YYYY-MM-DD) */
   date: string;
+  /**
+   * ISO date of the last substantive edit, from the optional `updated`
+   * frontmatter key. Falls back to `date`, so an article nobody has touched
+   * since publishing reports the two as equal.
+   */
+  updated: string;
   title: string;
   description: string;
   tags: string[];
@@ -79,9 +85,11 @@ for (const [path, raw] of Object.entries(files)) {
   if (!LANGS.includes(lang)) continue;
 
   const { data, body } = parseFrontmatter(raw);
+  const date = typeof data.date === "string" ? data.date : "";
   const meta = {
     slug,
-    date: typeof data.date === "string" ? data.date : "",
+    date,
+    updated: typeof data.updated === "string" && data.updated ? data.updated : date,
     title: typeof data.title === "string" ? data.title : slug,
     description: typeof data.description === "string" ? data.description : "",
     tags: Array.isArray(data.tags) ? data.tags : [],

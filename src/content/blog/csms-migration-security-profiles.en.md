@@ -1,6 +1,7 @@
 ---
 title: "Your wallbox, your backend? Why migrating a charge point to a new CSMS fails at the security profile"
 date: 2026-08-02
+updated: 2026-08-13
 description: "The EU Data Act gives owners the right to send their charging data to a service of their choice. OCPP security profiles 1, 2 and 3 decide whether that is a five minute job or technically impossible without help from the new operator."
 tags: [ocpp, security, certificates, data-act]
 ---

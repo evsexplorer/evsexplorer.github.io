@@ -50,7 +50,7 @@ for (const { route, lang } of routes) {
   if (seen.has(loc)) continue;
   seen.add(loc);
   const meta = pageMeta(route, lang);
-  const lastmod = meta.post ? meta.post.date : today;
+  const lastmod = meta.post ? meta.post.updated : today;
   const alts = meta.langs
     .map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE + buildPath(route, l)}"/>`)
     .join("\n");

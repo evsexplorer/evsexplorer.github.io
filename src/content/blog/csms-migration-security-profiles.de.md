@@ -1,6 +1,7 @@
 ---
 title: "Deine Wallbox, dein Backend? Warum die Migration einer Ladestation zu einem neuen CSMS am Security Profile scheitert"
 date: 2026-08-02
+updated: 2026-08-13
 description: "Der EU Data Act gibt Eigentümern das Recht, ihre Ladedaten an einen Dienst ihrer Wahl zu schicken. Ob das eine Sache von fünf Minuten oder ohne Mithilfe des neuen Betreibers technisch unmöglich ist, entscheiden die OCPP Security Profiles 1, 2 und 3."
 tags: [ocpp, security, certificates, data-act]
 ---

@@ -1,6 +1,7 @@
 ---
 title: "How a charging station opens its OCPP-J WebSocket connection"
 date: 2026-05-17
+updated: 2026-08-13
 description: "The connection URL, the HTTP upgrade and subprotocol negotiation, HTTP Basic Auth and TLS across the three security profiles, and how the connection is kept alive and re-established."
 tags: [ocpp, websocket, transport]
 ---

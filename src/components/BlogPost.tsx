@@ -51,9 +51,22 @@ export function BlogPost({
         </a>
 
         <header className="mt-6">
-          <time dateTime={post.date} className="text-sm font-medium text-navy-500">
-            {formatDate(post.date, post.lang)}
-          </time>
+          {/* An article nobody has revised reports updated == date, so the second
+              line only appears once there is a real edit to report. */}
+          <p className="flex flex-wrap items-center gap-x-2 text-sm font-medium text-navy-500">
+            <time dateTime={post.date}>{formatDate(post.date, post.lang)}</time>
+            {post.updated !== post.date && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>
+                  {t.blog.updatedLabel}{" "}
+                  <time dateTime={post.updated}>
+                    {formatDate(post.updated, post.lang)}
+                  </time>
+                </span>
+              </>
+            )}
+          </p>
           <h1 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
             {post.title}
           </h1>

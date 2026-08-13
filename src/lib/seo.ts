@@ -158,6 +158,7 @@ export function headTags(route: Route, lang: Language): string {
   );
   if (isPost) {
     lines.push(`<meta property="article:published_time" content="${meta.post!.date}" />`);
+    lines.push(`<meta property="article:modified_time" content="${meta.post!.updated}" />`);
     for (const tag of meta.post!.tags) lines.push(`<meta property="article:tag" content="${esc(tag)}" />`);
   }
 
@@ -196,7 +197,7 @@ function structuredData(route: Route, lang: Language, meta: PageMeta): string[] 
       headline: meta.post.title,
       description: meta.post.description,
       datePublished: meta.post.date,
-      dateModified: meta.post.date,
+      dateModified: meta.post.updated,
       inLanguage: lang,
       author: { "@type": "Organization", name: AUTHOR },
       publisher: {

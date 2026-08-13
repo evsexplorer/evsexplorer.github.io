@@ -1,6 +1,7 @@
 ---
 title: "The OCPP 2.0.1 BootNotification"
 date: 2026-05-24
+updated: 2026-08-13
 description: "The very first message a charging station sends after it connects: the boot reason, the hardware it reveals, and the clock sync hiding in the response."
 tags: [ocpp, boot, websocket]
 ---
