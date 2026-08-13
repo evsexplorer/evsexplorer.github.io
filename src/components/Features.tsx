@@ -31,6 +31,24 @@ const icons = [
 
 const iconColors = ["bg-brand-500", "bg-lime-500", "bg-navy-900"];
 
+// Anchors for deep links from articles (`/#feature-websocket-control`). Positional
+// like `icons`, language-independent, and prefixed because two of these titles also
+// name a tour item and duplicate ids would break both anchors.
+const slugs = [
+  "ocpp-csms",
+  "schema-validation",
+  "live-dashboard",
+  "auto-responses",
+  "connection-analytics",
+  "websocket-control",
+  "transactions-meter-values",
+  "security-events",
+  "device-model-browser",
+  "command-console",
+  "message-history",
+  "rest-api",
+];
+
 export function Features({ t }: { t: Translation }) {
   return (
     <section id="features" className="bg-white py-20" aria-labelledby="features-heading">
@@ -48,7 +66,8 @@ export function Features({ t }: { t: Translation }) {
             return (
               <div
                 key={feature.title}
-                className="rounded-xl border border-navy-100 p-6 transition-shadow hover:shadow-md"
+                id={`feature-${slugs[i]}`}
+                className="scroll-mt-24 rounded-xl border border-navy-100 p-6 transition-shadow hover:shadow-md"
               >
                 <div className={`inline-flex rounded-lg p-2.5 ${iconColors[i % 3]}`}>
                   <Icon className="size-5 text-white" aria-hidden />

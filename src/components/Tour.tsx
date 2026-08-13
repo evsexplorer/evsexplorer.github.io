@@ -8,6 +8,11 @@ import consoleShot from "../assets/shots/console.webp";
 
 const shots = [messagesShot, connectionsShot, transactionShot, consoleShot];
 
+// Stable anchors so an article can deep link to one tour item (`/#connection-stability`)
+// instead of dumping the reader at the top of the section. Positional like `shots`,
+// and deliberately language-independent so the same fragment works under `/de`.
+const slugs = ["message-log", "connection-stability", "transactions", "command-console"];
+
 export function Tour({ t }: { t: Translation }) {
   return (
     <section id="product" className="bg-navy-50 py-20" aria-labelledby="tour-heading">
@@ -23,7 +28,9 @@ export function Tour({ t }: { t: Translation }) {
           {t.tour.map((item, i) => (
             <div
               key={item.title}
-              className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+              id={slugs[i]}
+              // clears the sticky 64px header when jumped to from an article
+              className="scroll-mt-24 grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
             >
               <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
                 <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
