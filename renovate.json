@@ -1,3 +1,29 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "rebaseWhen": "behind-base-branch",
+  "minimumReleaseAge": "14 days",
+  "osvVulnerabilityAlerts": true,
+  "internalChecksFilter": "strict",
+  "packageRules": [
+    {
+      "description": "Minor and patch updates merge on their own once the required CI checks pass",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "One PR for all minor and patch updates: one CI run and one merge instead of a rebase cascade",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    }
+  ]
 }
