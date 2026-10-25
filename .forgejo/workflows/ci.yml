@@ -1,0 +1,23 @@
+# Run the build steps of .github/workflows/build-deploy.yml on every PR,
+# so Renovate only automerges updates that still type-check and build.
+# The existence of this directory also keeps Forgejo from running the
+# GitHub workflow, which deploys to GitHub Pages and only works there.
+
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Same Node line as the deploy build on GitHub.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
