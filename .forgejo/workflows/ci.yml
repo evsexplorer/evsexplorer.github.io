@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       # Same Node line as the deploy build on GitHub.
       - uses: actions/setup-node@v4
         with:
