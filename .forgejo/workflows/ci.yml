@@ -8,16 +8,37 @@ name: CI
 on:
   pull_request:
 
+# Every run step also writes its output to a file of the job, which the last
+# step posts to the pull request when the job fails (see .forgejo/scripts).
+# The job log itself is not readable through the API.
+defaults:
+  run:
+    shell: bash .forgejo/scripts/run-logged.sh {0}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - id: checkout
+        uses: actions/checkout@v7
       # Same Node line as the deploy build on GitHub.
-      - uses: actions/setup-node@v7
+      - id: setup-node
+        uses: actions/setup-node@v7
         with:
           node-version: 22.x
           cache: npm
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm run build
+      - id: install
+        run: npm ci
+      - id: typecheck
+        run: npm run typecheck
+      - id: build
+        run: npm run build
+      - name: Report the failure on the pull request
+        if: failure()
+        shell: bash
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          STEPS: ${{ toJSON(steps) }}
+        run: node .forgejo/scripts/report-failure.mjs
